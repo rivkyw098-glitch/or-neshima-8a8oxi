@@ -234,6 +234,8 @@ section{padding:80px 0}
   max-width:540px;margin:0 auto 22px;
   text-shadow:0 2px 24px rgba(27,42,49,.55);
 }
+.quote-sec .kicker{color:var(--sandlight);text-shadow:0 2px 20px rgba(27,42,49,.6)}
+.quote-sec blockquote{font-size:clamp(1.22rem,5vw,1.7rem);line-height:1.75}
 .quote-sec cite{
   font-style:normal;font-size:.86rem;letter-spacing:.14em;color:var(--sandlight);
 }
@@ -362,14 +364,34 @@ section{padding:80px 0}
 .fact dt{font-size:.88rem;letter-spacing:.08em;color:var(--teal);font-weight:600;flex:0 0 auto}
 .fact dd{font-size:.98rem;color:var(--ink-soft);text-align:start}
 
-/* המלצות */
-.testis{display:grid;gap:18px;margin-top:32px}
+/* אנשים משתפים. שורה נגללת הצידה, כרטיס אחד בכל פעם בנייד */
+.rating{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.rating a{
+  display:inline-flex;align-items:center;gap:8px;text-decoration:none;
+  font-size:.9rem;color:var(--ink-soft);background:#fff;
+  border:1px solid var(--line);border-radius:100px;padding:8px 16px;
+  transition:border-color .25s ease;
+}
+.rating a:hover{border-color:var(--teal-soft)}
+.rating b{color:var(--ink);font-weight:600}
+.stars{color:var(--gold);letter-spacing:.08em;font-size:.86rem}
+
+.testis{
+  display:flex;gap:14px;margin-top:28px;
+  overflow-x:auto;scroll-snap-type:x mandatory;
+  margin-inline:-24px;padding:6px 24px 26px;
+  scroll-padding-inline:24px;scrollbar-width:none;
+}
+.testis::-webkit-scrollbar{display:none}
 .testi{
+  flex:0 0 84%;scroll-snap-align:start;
+  display:flex;flex-direction:column;justify-content:space-between;
   background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 24px;
   box-shadow:var(--shadow);
 }
 .testi p{font-family:var(--serif);font-size:1.06rem;line-height:1.7;color:var(--ink);font-weight:300}
-.testi span{display:block;margin-top:14px;font-size:.82rem;letter-spacing:.1em;color:var(--teal)}
+.testi span{display:block;margin-top:16px;font-size:.84rem;letter-spacing:.06em;color:var(--teal);font-weight:600}
+.swipe-hint{font-size:.82rem;color:var(--ink-soft);text-align:center;margin-top:-6px}
 
 /* טופס הזמנה */
 .book{
@@ -437,7 +459,12 @@ footer .role{font-size:.9rem;color:var(--ink-soft);margin-bottom:22px}
   body{font-size:1.08rem}
   section{padding:100px 0}
   .cards{grid-template-columns:repeat(3,1fr);margin-inline:-90px}
-  .testis{grid-template-columns:repeat(2,1fr);margin-inline:-60px}
+  .testis{
+    margin-inline:-90px;padding-inline:24px;scroll-padding-inline:24px;
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 40px,#000 calc(100% - 40px),transparent 100%);
+            mask-image:linear-gradient(90deg,transparent 0,#000 40px,#000 calc(100% - 40px),transparent 100%);
+  }
+  .testi{flex-basis:340px}
   .card{padding:30px 26px}
 }
 
@@ -465,11 +492,11 @@ footer .role{font-size:.9rem;color:var(--ink-soft);margin-bottom:22px}
   </div>
 
   <div class="hero-inner">
-    <p class="kicker">נשימה מעגלית במכתש רמון</p>
-    <h1>לנשום אל מה שמעכב חיים</h1>
+    <p class="kicker">לתת שקט לחלחל פנימה</p>
+    <h1>סדנאות נשימה מעגלית במכתש רמון</h1>
     <p class="lead">
-      סדנאות נשימה בלב המדבר. לבד, בזוג או בקבוצה קטנה.
-      שעה וחצי של שקט, שחרור והתרחבות, מול השקיעה.
+      סדנאות לזוגות וקבוצות קטנות.
+      שעה וחצי של שקט, שחרור והתרחבות.
     </p>
 
     <div class="orb-stage" aria-hidden="true">
@@ -489,40 +516,104 @@ footer .role{font-size:.9rem;color:var(--ink-soft);margin-bottom:22px}
 </header>
 
 <!-- ==================================================================== -->
-<!-- ציטוט מרכזי, במילים שלו                                              -->
+<!-- מהי נשימה מעגלית, במילים של אור                                      -->
 <!-- ==================================================================== -->
-<section class="quote-sec">
+<section class="quote-sec" id="what">
   <div class="vid-bg" aria-hidden="true">
     <video data-bg src="assets/vid/sky.mp4" poster="assets/vid/sky.jpg"
            muted loop playsinline preload="none"></video>
   </div>
   <div class="wrap">
+    <p class="kicker">מהי נשימה מעגלית</p>
     <blockquote>
-      אני אוהב סוף של סדנאות כי יש באוויר אנרגיה רכה של שחרור. של רפואה.
+      נשימה מעגלית היא טכניקה פשוטה של נשימה רציפה, המאפשרת לשחרר את הרעש במחשבה
+      ולהחזיר את הקשב אל הגוף, אל התחושות, הרגשות ומה שמבקש לקבל מקום.
     </blockquote>
-    <cite>אור רבינוביץ</cite>
   </div>
 </section>
 
 <!-- ==================================================================== -->
-<!-- על אור                                                               -->
+<!-- אנשים משתפים. משובים אמיתיים מגוגל ומאינדקס מצפה רמון                 -->
+<!-- הטקסטים קוצרו בלבד, בלי שינוי ניסוח. נאספו ב-15 בספטמבר 2026         -->
 <!-- ==================================================================== -->
-<section class="block" id="about">
+<section class="block" id="reviews">
   <div class="wrap">
-    <p class="kicker">נעים להכיר</p>
-    <h2>אני אור, ואני מלווה אנשים בנשימה</h2>
+    <p class="kicker">אנשים משתפים</p>
+    <h2>מה מספרים אחרי הסדנה</h2>
+
+    <div class="rating">
+      <a href="https://share.google/P7ou3xd7Tfru1L1pu" target="_blank" rel="noopener">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <b>5.0</b> בגוגל, 15 ביקורות
+      </a>
+      <a href="https://mitzpe-ramon.co.il/listing/%D7%90%D7%95%D7%A8-%D7%A8%D7%91%D7%99%D7%A0%D7%95%D7%91%D7%99%D7%A5-%D7%A1%D7%93%D7%A0%D7%90%D7%95%D7%AA-%D7%A0%D7%A9%D7%99%D7%9E%D7%94/#reviews" target="_blank" rel="noopener">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        16 ביקורות בהחוויה המצפאית
+      </a>
+    </div>
+
+    <div class="testis" tabindex="0" aria-label="משובים של משתתפים, אפשר לגלול הצידה">
+      <figure class="testi">
+        <p>באופן אישי עברתי כמה סדנאות מכל מיני סוגים לטובת שחרור רגשות תקועים, אבל לעולם, באף סדנה, לא חוויתי כזה שחרור וכזה רוגע שהמשיך עוד כמה ימים אחרי.</p>
+        <span>עינת, הגיעה עם חברה</span>
+      </figure>
+      <figure class="testi">
+        <p>היינו ארבעה מאותה משפחה, הורים וילדים בגירים. כל אחד מאיתנו חווה חוויה אישית עמוקה ומשמעותית. אור ליווה את המסע שלנו ברגישות ובתבונה, והרגשנו שהוא לגמרי מכוון אלינו כפרטים וכמשפחה.</p>
+        <span>ענת, סדנה משפחתית</span>
+      </figure>
+      <figure class="testi">
+        <p>הגענו בתור זוג לסדנא. קודם כל אור איש מקסים ונעים, ככה שמהתחלה הרגשנו רוגע ונוחות. החוויה הייתה מיוחדת, עמוקה ומלמדת, על עצמנו בתור יחידים וכזוג.</p>
+        <span>עידן, סדנה זוגית</span>
+      </figure>
+      <figure class="testi">
+        <p>באתי עם חששות וציפיות גדולות לסדנת ריברסינג ראשונה שלי אי פעם. כבר ברגעים הראשונים הרגשתי בטוחה. אור הצליח לראות כל אחד ואחת באופן פרטני וברגישות מדויקת, והנוף המדברי היה הבונוס שבסוף.</p>
+        <span>טליה</span>
+      </figure>
+      <figure class="testi">
+        <p>בסדנה השנייה עם אור, במכתש, חוויתי כיצד הנשימה המעגלית מגיעה אל שכבות עמוקות ומאפשרת להן להיחשף. זו הייתה חוויה של שחרור, בהירות והתחברות מחודשת.</p>
+        <span>פאטמה</span>
+      </figure>
+      <figure class="testi">
+        <p>הגעתי עם מחסום רגשי לא פתור ואנרגיות נמוכות, ויצאתי אדם חדש. דרך הנשימות הצלחתי להביע את הרגשות הפחות מובעים ביום יום ולהבין את מקור הכעס והכאב שלי.</p>
+        <span>ג'ון</span>
+      </figure>
+      <figure class="testi">
+        <p>בעזרת ההנחיה והדיוק של אור הצלחתי להביע רגשות כפי שאף פעם לא הבעתי. התחושה שאחרי היא נקייה ונינוחה, באמת הצלחתי לשחרר שם משהו תקוע.</p>
+        <span>שירילי</span>
+      </figure>
+      <figure class="testi">
+        <p>זה היה משחרר ומרגיע ובו זמנית מסע למקומות מיוחדים. הסדנה קורית מול הנוף היפה בעולם, וההנחיה של אור מעולה ומדויקת.</p>
+        <span>דוד</span>
+      </figure>
+      <figure class="testi">
+        <p>מטפל קשוב וצנוע, עם רגישות שיא, מאפשר מרחב בטוח לריפוי עמוק ואמיתי.</p>
+        <span>רוני</span>
+      </figure>
+      <figure class="testi">
+        <p>שכחתי כבר מה זה אומר להרגיש ולחוות את הרגשות והתחושות. תודה שפתחת לי פתח.</p>
+        <span>גברי</span>
+      </figure>
+    </div>
+    <p class="swipe-hint" aria-hidden="true">החליקו הצידה לעוד משובים</p>
+  </div>
+</section>
+
+<!-- ==================================================================== -->
+<!-- מי אני. הטקסט של אור, מילה במילה                                     -->
+<!-- ==================================================================== -->
+<section class="block warm" id="about">
+  <div class="wrap">
+    <p class="kicker">מי אני</p>
+    <h2>נעים להכיר, אני אור</h2>
 
     <p>
-      אני גר במצפה רמון עם מירי ועם טל הקטן, ומנחה סדנאות גוף ונפש בלב המכתש.
+      <strong>אור רבינוביץ</strong>, מנחה סדנאות גוף-נפש ומלווה תהליכים אישיים וקבוצתיים.
+      גר במצפה רמון, נשוי למירי ואבא טרי לטל המתוק.
     </p>
     <p>
-      הדרך שלי לכאן עברה דרך התמודדות עם דיכאון ועם חרדה. שם גיליתי את הריפוי
-      שיש בנשימה ובחיבור לרגשות, והמסע האישי הזה הוביל אותי ללמוד ולחקור כלים
-      שעוזרים לפגוש ברכות ובחמלה את האנושיות שבנו.
-    </p>
-    <p>
-      <strong>הנשימה היא הכלי המרכזי שדרכו אני פוגש את הכאב, ודרכו אני חווה שחרור ושמחה.
-      זו בדיוק הסיבה שבחרתי לטפל בנשימה.</strong>
+      מתוך מסע חיים שכלל התמודדות עם דיכאון וחרדה גיליתי את הריפוי שיש בנשימה ובחיבור לרגשות.
+      חווית החיים האישית שלי הובילה אותי לחקור וללמוד כלים שעוזרים לפגוש ברכות וחמלה
+      את האנושיות שבנו, במטרה לחיות חיים מלאים ומחוברים יותר.
     </p>
 
     <p class="about-sign">מרחב בטוח להיות מי שאתם</p>
@@ -532,7 +623,7 @@ footer .role{font-size:.9rem;color:var(--ink-soft);margin-bottom:22px}
 <!-- ==================================================================== -->
 <!-- שלוש הדרכים בסדנה                                                    -->
 <!-- ==================================================================== -->
-<section class="block warm" id="workshop">
+<section class="block" id="workshop">
   <div class="wrap">
     <p class="kicker">מה עובד שם</p>
     <h2>שלושה כלים, שפועלים יחד</h2>
@@ -571,6 +662,8 @@ footer .role{font-size:.9rem;color:var(--ink-soft);margin-bottom:22px}
     </div>
   </div>
 </section>
+
+<div class="divider" aria-hidden="true"></div>
 
 <!-- ==================================================================== -->
 <!-- מהלך הסדנה                                                           -->
@@ -678,30 +771,6 @@ footer .role{font-size:.9rem;color:var(--ink-soft);margin-bottom:22px}
            muted loop playsinline preload="none"></video>
   </div>
   <p class="strip-line">יש באוויר אנרגיה רכה של שחרור. של רפואה.</p>
-</section>
-
-<!-- ==================================================================== -->
-<!-- המלצות                                                               -->
-<!-- ==================================================================== -->
-<section class="block warm">
-  <div class="wrap">
-    <p class="kicker">מה מספרים אחרי</p>
-    <h2>חוויה שנשארת ומהדהדת הלאה</h2>
-
-    <div class="testis">
-      <figure class="testi">
-        <p>שכחתי כבר מה זה אומר להרגיש ולחוות את הרגשות והתחושות. תודה שפתחת לי פתח.</p>
-        <span>משתתפת בסדנה</span>
-      </figure>
-      <figure class="testi">
-        <p>
-          הסדנה הייתה חווייתית ועמוקה. בעזרת ההנחיה והדיוק של אור הצלחתי להביע רגשות
-          כפי שאף פעם לא הבעתי. התחושה שאחרי היא נקייה ונינוחה, באמת הצלחתי לשחרר שם משהו תקוע.
-        </p>
-        <span>משתתף בסדנה</span>
-      </figure>
-    </div>
-  </div>
 </section>
 
 <!-- ==================================================================== -->

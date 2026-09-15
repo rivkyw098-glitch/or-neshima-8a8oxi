@@ -307,14 +307,15 @@ section{padding:80px 0}
 .opt-link:hover{color:#3f696c;border-bottom-color:var(--teal)}
 .opt-link:focus-visible{outline:2px solid var(--teal);outline-offset:4px;border-radius:2px}
 
-/* בועה נושמת בשלושת הכלים */
-#workshop .card .mark{
+/* בועה נושמת בשלושת הכלים ובאפשרויות */
+#options .card:nth-child(4) .mark{animation-delay:-3s}
+#workshop .card .mark,#options .card .mark{
   width:44px;height:44px;margin-bottom:18px;
   animation:bubble 6s ease-in-out infinite;
   box-shadow:0 0 0 0 rgba(143,182,182,.35);
 }
-#workshop .card:nth-child(2) .mark{animation-delay:-2s}
-#workshop .card:nth-child(3) .mark{animation-delay:-4s}
+#workshop .card:nth-child(2) .mark,#options .card:nth-child(2) .mark{animation-delay:-2s}
+#workshop .card:nth-child(3) .mark,#options .card:nth-child(3) .mark{animation-delay:-4s}
 @keyframes bubble{
   0%,100%{transform:scale(.78) translate(0,0);box-shadow:0 0 0 0 rgba(143,182,182,.35)}
   45%{transform:scale(1.12) translate(-3px,-5px);box-shadow:0 0 0 12px rgba(143,182,182,0)}
@@ -408,21 +409,33 @@ section{padding:80px 0}
 .rating b{color:var(--ink);font-weight:600}
 .stars{color:var(--gold);letter-spacing:.08em;font-size:.86rem}
 
-.testis{
-  display:flex;gap:14px;margin-top:28px;
-  overflow-x:auto;scroll-snap-type:x mandatory;
-  margin-inline:-24px;padding:6px 24px 26px;
-  scroll-padding-inline:24px;scrollbar-width:none;
-}
-.testis::-webkit-scrollbar{display:none}
+.testis{display:grid;gap:14px;margin-top:28px}
 .testi{
-  flex:0 0 84%;scroll-snap-align:start;
-  display:flex;flex-direction:column;justify-content:space-between;
-  background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 24px;
+  display:flex;flex-direction:column;gap:10px;
+  background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px 22px 20px;
   box-shadow:var(--shadow);
 }
-.testi p{font-family:var(--serif);font-size:1.18rem;line-height:1.7;color:var(--ink);font-weight:300}
-.testi span{display:block;margin-top:16px;font-size:.84rem;letter-spacing:.06em;color:var(--teal);font-weight:600}
+.testi-head{display:flex;align-items:center;gap:12px}
+.avatar{
+  flex:0 0 42px;height:42px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--sans);font-weight:600;font-size:1.05rem;color:#fff;background:var(--teal-soft);
+}
+.testi:nth-child(4n+2) .avatar{background:var(--gold)}
+.testi:nth-child(4n+3) .avatar{background:var(--rose)}
+.testi:nth-child(4n+4) .avatar{background:var(--teal)}
+.who{display:flex;flex-direction:column;line-height:1.35}
+.who b{font-weight:600;color:var(--ink);font-size:1rem}
+.who small{font-size:.8rem;color:var(--ink-soft)}
+.testi .stars{font-size:1rem;letter-spacing:.1em;line-height:1}
+.testi blockquote p{font-family:var(--serif);font-size:1.18rem;line-height:1.65;color:var(--ink)}
+.testi-ctx{
+  align-self:flex-start;font-size:.8rem;color:var(--teal);font-weight:600;
+  background:rgba(143,182,182,.14);border-radius:20px;padding:2px 12px;
+}
+/* בהתחלה מוצגים רק חלק מהמשובים, הכפתור פותח את כל השאר */
+.testis:not(.open) .testi:nth-child(n+6){display:none}
+.testis-more{text-align:center;margin-top:24px}
 
 /* טופס הזמנה */
 .book{
@@ -434,6 +447,8 @@ section{padding:80px 0}
     rgba(252,247,239,.9) 0%, rgba(252,247,239,.74) 38%, rgba(242,236,226,.93) 100%);
 }
 .book .wrap{position:relative;z-index:1}
+/* בלי וידאו מאחורי הטופס: הוא כמעט לא נראה דרך השכבה הבהירה, ובטלפון יצא עכור */
+.book{background:linear-gradient(180deg,#f8f2e8 0%,#fcf7ef 45%,#f2ece2 100%)}
 .form{
   margin-top:32px;background:#fff;border:1px solid var(--line);
   border-radius:22px;padding:28px 24px;box-shadow:var(--shadow);
@@ -491,16 +506,11 @@ footer .role{font-size:.9rem;color:var(--ink-soft);margin-bottom:22px}
   section{padding:100px 0}
   .cards{grid-template-columns:repeat(3,1fr);margin-inline:-90px}
   .cards.opts{grid-template-columns:repeat(2,1fr);margin-inline:0}
-  /* במחשב כל המשובים גלויים, בשלושה טורים, בלי גלילה הצידה */
-  .testis{
-    display:block;columns:3;column-gap:18px;
-    overflow:visible;scroll-snap-type:none;
-    margin-inline:-90px;padding:6px 0 0;
-  }
-  .testi{
-    display:inline-flex;width:100%;
-    break-inside:avoid;margin-bottom:18px;
-  }
+  /* במחשב שלושה טורים, ובהתחלה 9 משובים גלויים */
+  .testis{display:block;columns:3;column-gap:16px;margin-inline:-90px}
+  .testi{break-inside:avoid;margin-bottom:16px}
+  .testis:not(.open) .testi:nth-child(n+6){display:flex}
+  .testis:not(.open) .testi:nth-child(n+10){display:none}
   .card{padding:30px 26px}
 }
 
@@ -588,47 +598,214 @@ footer .role{font-size:.9rem;color:var(--ink-soft);margin-bottom:22px}
       </a>
     </div>
 
-    <div class="testis" tabindex="0" aria-label="משובים של משתתפים">
+    <div class="testis" id="testis" aria-label="משובים של משתתפים">
       <figure class="testi">
-        <p>באופן אישי עברתי כמה סדנאות מכל מיני סוגים לטובת שחרור רגשות תקועים, אבל לעולם, באף סדנה, לא חוויתי כזה שחרור וכזה רוגע שהמשיך עוד כמה ימים אחרי.</p>
-        <span>עינת, הגיעה עם חברה</span>
+        <figcaption class="testi-head">
+          <span class="avatar" aria-hidden="true">ע</span>
+          <span class="who"><b>עינת</b><small>ביקורת בהחוויה המצפאית</small><small>דצמבר 2025</small></span>
+        </figcaption>
+        <span class="stars" role="img" aria-label="5 כוכבים">★★★★★</span>
+        <blockquote><p>באופן אישי עברתי כמה סדנאות מכל מיני סוגים לטובת שחרור רגשות תקועים, אבל לעולם, באף סדנה, לא חוויתי כזה שחרור וכזה רוגע שהמשיך עוד כמה ימים אחרי.</p></blockquote>
+        <span class="testi-ctx">הגיעה עם חברה</span>
       </figure>
       <figure class="testi">
-        <p>היינו ארבעה מאותה משפחה, הורים וילדים בגירים. כל אחד מאיתנו חווה חוויה אישית עמוקה ומשמעותית. אור ליווה את המסע שלנו ברגישות ובתבונה, והרגשנו שהוא לגמרי מכוון אלינו כפרטים וכמשפחה.</p>
-        <span>ענת, סדנה משפחתית</span>
+        <figcaption class="testi-head">
+          <span class="avatar" aria-hidden="true">ע</span>
+          <span class="who"><b>ענת</b><small>ביקורת בהחוויה המצפאית</small><small>אוגוסט 2025</small></span>
+        </figcaption>
+        <span class="stars" role="img" aria-label="5 כוכבים">★★★★★</span>
+        <blockquote><p>היינו ארבעה מאותה משפחה, הורים וילדים בגירים. כל אחד מאיתנו חווה חוויה אישית עמוקה ומשמעותית. אור ליווה את המסע שלנו ברגישות ובתבונה, והרגשנו שהוא לגמרי מכוון אלינו כפרטים וכמשפחה.</p></blockquote>
+        <span class="testi-ctx">סדנה משפחתית</span>
       </figure>
       <figure class="testi">
-        <p>הגענו בתור זוג לסדנא. קודם כל אור איש מקסים ונעים, ככה שמהתחלה הרגשנו רוגע ונוחות. החוויה הייתה מיוחדת, עמוקה ומלמדת, על עצמנו בתור יחידים וכזוג.</p>
-        <span>עידן, סדנה זוגית</span>
+        <figcaption class="testi-head">
+          <span class="avatar" aria-hidden="true">ע</span>
+          <span class="who"><b>עידן</b><small>ביקורת בגוגל</small><small>נובמבר 2025</small></span>
+        </figcaption>
+        <span class="stars" role="img" aria-label="5 כוכבים">★★★★★</span>
+        <blockquote><p>הגענו בתור זוג לסדנא. קודם כל אור איש מקסים ונעים, ככה שמהתחלה הרגשנו רוגע ונוחות. החוויה הייתה מיוחדת, עמוקה ומלמדת, על עצמנו בתור יחידים וכזוג.</p></blockquote>
+        <span class="testi-ctx">סדנה זוגית</span>
       </figure>
       <figure class="testi">
-        <p>באתי עם חששות וציפיות גדולות לסדנת ריברסינג ראשונה שלי אי פעם. כבר ברגעים הראשונים הרגשתי בטוחה. אור הצליח לראות כל אחד ואחת באופן פרטני וברגישות מדויקת, והנוף המדברי היה הבונוס שבסוף.</p>
-        <span>טליה</span>
+        <figcaption class="testi-head">
+          <span class="avatar" aria-hidden="true">ט</span>
+          <span class="who"><b>טליה</b><small>ביקורת בהחוויה המצפאית</small><small>ינואר 2025</small></span>
+        </figcaption>
+        <span class="stars" role="img" aria-label="5 כוכבים">★★★★★</span>
+        <blockquote><p>באתי עם חששות וציפיות גדולות לסדנת ריברסינג ראשונה שלי אי פעם. כבר ברגעים הראשונים הרגשתי בטוחה. אור הצליח לראות כל אחד ואחת באופן פרטני וברגישות מדויקת, והנוף המדברי היה הבונוס שבסוף.</p></blockquote>
       </figure>
       <figure class="testi">
-        <p>בסדנה השנייה עם אור, במכתש, חוויתי כיצד הנשימה המעגלית מגיעה אל שכבות עמוקות ומאפשרת להן להיחשף. זו הייתה חוויה של שחרור, בהירות והתחברות מחודשת.</p>
-        <span>פאטמה</span>
+        <figcaption class="testi-head">
+          <span class="avatar" aria-hidden="true">פ</span>
+          <span class="who"><b>פאטמה</b><small>ביקורת בגוגל</small><small>ספטמבר 2026</small></span>
+        </figcaption>
+        <span class="stars" role="img" aria-label="5 כוכבים">★★★★★</span>
+        <blockquote><p>בסדנה השנייה עם אור, במכתש, חוויתי כיצד הנשימה המעגלית מגיעה אל שכבות עמוקות ומאפשרת להן להיחשף. זו הייתה חוויה של שחרור, בהירות והתחברות מחודשת.</p></blockquote>
       </figure>
       <figure class="testi">
-        <p>הגעתי עם מחסום רגשי לא פתור ואנרגיות נמוכות, ויצאתי אדם חדש. דרך הנשימות הצלחתי להביע את הרגשות הפחות מובעים ביום יום ולהבין את מקור הכעס והכאב שלי.</p>
-        <span>ג'ון</span>
+        <figcaption class="testi-head">
+          <span class="avatar" aria-hidden="true">נ</span>
+          <span class="who"><b>נעם</b><small>ביקורת בהחוויה המצפאית</small><small>אוקטובר 2025</small></span>
+        </figcaption>
+        <span class="stars" role="img" aria-label="5 כוכבים">★★★★★</span>
+        <blockquote><p>לא ידעתי כלל על הנשימה המעגלית ולא יכולתי לבקש מנחה מדהים וטוב יותר מאור. הוא הנחה אותי ואת שתי חברותיי בחוכמה וברגישות ואיפשר לתהליכים משמעותיים כל כך לקרות.</p></blockquote>
       </figure>
       <figure class="testi">
-        <p>בעזרת ההנחיה והדיוק של אור הצלחתי להביע רגשות כפי שאף פעם לא הבעתי. התחושה שאחרי היא נקייה ונינוחה, באמת הצלחתי לשחרר שם משהו תקוע.</p>
-        <span>שירילי</span>
+        <figcaption class="testi-head">
+          <span class="avatar" aria-hidden="true">ג</span>
+          <span class="who"><b>ג׳ון</b><small>ביקורת בהחוויה המצפאית</small><small>מרץ 2025</small></span>
+        </figcaption>
+        <span class="stars" role="img" aria-label="5 כוכבים">★★★★★</span>
+        <blockquote><p>הגעתי עם מחסום רגשי לא פתור ואנרגיות נמוכות, ויצאתי אדם חדש. דרך הנשימות הצלחתי להביע את הרגשות הפחות מובעים ביום יום ולהבין את מקור הכעס והכאב שלי.</p></blockquote>
       </figure>
       <figure class="testi">
-        <p>זה היה משחרר ומרגיע ובו זמנית מסע למקומות מיוחדים. הסדנה קורית מול הנוף היפה בעולם, וההנחיה של אור מעולה ומדויקת.</p>
-        <span>דוד</span>
+        <figcaption class="testi-head">
+          <span class="avatar" aria-hidden="true">ש</span>
+          <span class="who"><b>שמעון</b><small>ביקורת בהחוויה המצפאית</small><small>אפריל 2025</small></span>
+        </figcaption>
+        <span class="stars" role="img" aria-label="5 כוכבים">★★★★★</span>
+        <blockquote><p>הגענו למכתש, אני והבת זוג שלי. אור הוביל אותנו במסע הנפלא הזה ברגישות והקשבה עדינה, עם הנחייה שממש עזרה לנו להרפות ולשחרר וגם לפגוש.</p></blockquote>
+        <span class="testi-ctx">סדנה זוגית</span>
       </figure>
       <figure class="testi">
-        <p>מטפל קשוב וצנוע, עם רגישות שיא, מאפשר מרחב בטוח לריפוי עמוק ואמיתי.</p>
-        <span>רוני</span>
+        <figcaption class="testi-head">
+          <span class="avatar" aria-hidden="true">ש</span>
+          <span class="who"><b>שירילי</b><small>ביקורת בהחוויה המצפאית</small><small>ינואר 2025</small></span>
+        </figcaption>
+        <span class="stars" role="img" aria-label="5 כוכבים">★★★★★</span>
+        <blockquote><p>בעזרת ההנחיה והדיוק של אור הצלחתי להביע רגשות כפי שאף פעם לא הבעתי. התחושה שאחרי היא נקייה ונינוחה, באמת הצלחתי לשחרר שם משהו תקוע.</p></blockquote>
       </figure>
       <figure class="testi">
-        <p>שכחתי כבר מה זה אומר להרגיש ולחוות את הרגשות והתחושות. תודה שפתחת לי פתח.</p>
-        <span>גברי</span>
+        <figcaption class="testi-head">
+          <span class="avatar" aria-hidden="true">ד</span>
+          <span class="who"><b>דוד</b><small>ביקורת בגוגל</small><small>יוני 2026</small></span>
+        </figcaption>
+        <span class="stars" role="img" aria-label="5 כוכבים">★★★★★</span>
+        <blockquote><p>זה היה משחרר ומרגיע ובו זמנית מסע למקומות מיוחדים. הסדנה קורית מול הנוף היפה בעולם, וההנחיה של אור מעולה ומדויקת.</p></blockquote>
       </figure>
+      <figure class="testi">
+        <figcaption class="testi-head">
+          <span class="avatar" aria-hidden="true">א</span>
+          <span class="who"><b>אילה</b><small>ביקורת בהחוויה המצפאית</small><small>פברואר 2026</small></span>
+        </figcaption>
+        <span class="stars" role="img" aria-label="5 כוכבים">★★★★★</span>
+        <blockquote><p>היתה לי סדנה מדהימה. המיקום, המזרון, הסדינים, התה וכל מה שמסביב היה מדויק, נקי ונעים. הרגשתי נוח לבכות, לצעוק. ניקיון לנפש ברמה גבוהה.</p></blockquote>
+      </figure>
+      <figure class="testi">
+        <figcaption class="testi-head">
+          <span class="avatar" aria-hidden="true">ט</span>
+          <span class="who"><b>טל</b><small>ביקורת בהחוויה המצפאית</small><small>מרץ 2025</small></span>
+        </figcaption>
+        <span class="stars" role="img" aria-label="5 כוכבים">★★★★★</span>
+        <blockquote><p>אור, כמו השם שלך, אתה כזה אור גדול. לעבור ריברסינג במדבר, מסביבך מכתש רמון, מעליך שמים. זו חוויה אחרת לגמרי. תודה על מי שאתה.</p></blockquote>
+      </figure>
+      <figure class="testi">
+        <figcaption class="testi-head">
+          <span class="avatar" aria-hidden="true">ר</span>
+          <span class="who"><b>רוני</b><small>ביקורת בגוגל</small><small>מאי 2026</small></span>
+        </figcaption>
+        <span class="stars" role="img" aria-label="5 כוכבים">★★★★★</span>
+        <blockquote><p>מטפל קשוב וצנוע, עם רגישות שיא, מאפשר מרחב בטוח לריפוי עמוק ואמיתי.</p></blockquote>
+      </figure>
+      <figure class="testi">
+        <figcaption class="testi-head">
+          <span class="avatar" aria-hidden="true">מ</span>
+          <span class="who"><b>משפחת ס.</b><small>ביקורת בגוגל</small><small>2025</small></span>
+        </figcaption>
+        <span class="stars" role="img" aria-label="5 כוכבים">★★★★★</span>
+        <blockquote><p>בתוך אווירת המדבר הקסומה, הוא הצליח ליצור עבורנו מרחב בטוח, נעים ומעמיק. תרגולי הנשימה בהנחייתו אפשרו לנו להתחבר פנימה, לשחרר ולהתמלא מחדש. הסדנה הזו תלך איתי הלאה.</p></blockquote>
+      </figure>
+      <figure class="testi">
+        <figcaption class="testi-head">
+          <span class="avatar" aria-hidden="true">י</span>
+          <span class="who"><b>יובל</b><small>ביקורת בהחוויה המצפאית</small><small>ינואר 2025</small></span>
+        </figcaption>
+        <span class="stars" role="img" aria-label="5 כוכבים">★★★★★</span>
+        <blockquote><p>אור היה רגיש ונעים, יצר סביבה נוחה ומאפשרת ודאג לכל צורך שעלה בסשן. השילוב של החוויה שהעביר עם המדבר המקיף מכל כיוון היה כמו מגלשה לתוך תחושות וזכרונות.</p></blockquote>
+      </figure>
+      <figure class="testi">
+        <figcaption class="testi-head">
+          <span class="avatar" aria-hidden="true">ג</span>
+          <span class="who"><b>גברי</b><small>ביקורת בהחוויה המצפאית</small><small>אפריל 2025</small></span>
+        </figcaption>
+        <span class="stars" role="img" aria-label="5 כוכבים">★★★★★</span>
+        <blockquote><p>שכחתי כבר מה זה אומר להרגיש ולחוות את הרגשות והתחושות. תודה שפתחת לי פתח.</p></blockquote>
+      </figure>
+      <figure class="testi">
+        <figcaption class="testi-head">
+          <span class="avatar" aria-hidden="true">ד</span>
+          <span class="who"><b>דן</b><small>ביקורת בהחוויה המצפאית</small><small>פברואר 2025</small></span>
+        </figcaption>
+        <span class="stars" role="img" aria-label="5 כוכבים">★★★★★</span>
+        <blockquote><p>מי שרוצה להתקרב לכל מיני רגשות מודחקים, זה המקום לפתוח כל מיני מקומות בלב שלא מקבלים מקום מטבע החיים המהירים שאנחנו חיים בהם.</p></blockquote>
+      </figure>
+      <figure class="testi">
+        <figcaption class="testi-head">
+          <span class="avatar" aria-hidden="true">ת</span>
+          <span class="who"><b>תומש</b><small>ביקורת בהחוויה המצפאית</small><small>מרץ 2025</small></span>
+        </figcaption>
+        <span class="stars" role="img" aria-label="5 כוכבים">★★★★★</span>
+        <blockquote><p>היתה חוויה מאוד חזקה ורגשית. דרך הנשימות עברנו מסע עמוק לשחרור ופורקן. מרגיש שיצאתי עם כלי חדש ביד.</p></blockquote>
+      </figure>
+      <figure class="testi">
+        <figcaption class="testi-head">
+          <span class="avatar" aria-hidden="true">ח</span>
+          <span class="who"><b>חוה</b><small>ביקורת בהחוויה המצפאית</small><small>פברואר 2025</small></span>
+        </figcaption>
+        <span class="stars" role="img" aria-label="5 כוכבים">★★★★★</span>
+        <blockquote><p>באתי לסשן עם אור בלי לצפות כל כך מזה ויצאתי אחרת לגמרי. אין לי מילים לתאר את הטוב שזה גרם לי.</p></blockquote>
+      </figure>
+      <figure class="testi">
+        <figcaption class="testi-head">
+          <span class="avatar" aria-hidden="true">ע</span>
+          <span class="who"><b>עומרי</b><small>ביקורת בגוגל</small><small>אפריל 2026</small></span>
+        </figcaption>
+        <span class="stars" role="img" aria-label="5 כוכבים">★★★★★</span>
+        <blockquote><p>אור בחור מקסים, הסדנה הייתה חווייתית ומעולה. דאג להכל והיה הכי מזמין וכיפי שבעולם. ממליץ בחום.</p></blockquote>
+      </figure>
+      <figure class="testi">
+        <figcaption class="testi-head">
+          <span class="avatar" aria-hidden="true">ד</span>
+          <span class="who"><b>דנה</b><small>ביקורת בהחוויה המצפאית</small><small>אוקטובר 2025</small></span>
+        </figcaption>
+        <span class="stars" role="img" aria-label="5 כוכבים">★★★★★</span>
+        <blockquote><p>תודה אור על חוויה משמעותית, נוגעת עמוק ומשחררת. הליווי העדין והרגיש שלך בסטינג המדהים הזה אפשר המון.</p></blockquote>
+      </figure>
+      <figure class="testi">
+        <figcaption class="testi-head">
+          <span class="avatar" aria-hidden="true">ד</span>
+          <span class="who"><b>דל</b><small>ביקורת בהחוויה המצפאית</small><small>אפריל 2025</small></span>
+        </figcaption>
+        <span class="stars" role="img" aria-label="5 כוכבים">★★★★★</span>
+        <blockquote><p>ממליצה ממש על סשן עם אור, נשמה רגישה ומדויקת שיודע להחזיק מרחב.</p></blockquote>
+      </figure>
+      <figure class="testi">
+        <figcaption class="testi-head">
+          <span class="avatar" aria-hidden="true">ש</span>
+          <span class="who"><b>שירה</b><small>ביקורת בגוגל</small><small>אוגוסט 2026</small></span>
+        </figcaption>
+        <span class="stars" role="img" aria-label="5 כוכבים">★★★★★</span>
+        <blockquote><p>חוויה משחררת, עוצמתית וקסומה. ממליצה מאוד.</p></blockquote>
+      </figure>
+      <figure class="testi">
+        <figcaption class="testi-head">
+          <span class="avatar" aria-hidden="true">א</span>
+          <span class="who"><b>אהוד</b><small>ביקורת בגוגל</small><small>יולי 2026</small></span>
+        </figcaption>
+        <span class="stars" role="img" aria-label="5 כוכבים">★★★★★</span>
+        <blockquote><p>חוויה מדהימה. אור מנחה ברמה הכי גבוהה, שווה כל שקל.</p></blockquote>
+      </figure>
+      <figure class="testi">
+        <figcaption class="testi-head">
+          <span class="avatar" aria-hidden="true">ת</span>
+          <span class="who"><b>תומר</b><small>ביקורת בגוגל</small><small>אפריל 2026</small></span>
+        </figcaption>
+        <span class="stars" role="img" aria-label="5 כוכבים">★★★★★</span>
+        <blockquote><p>בחור מדהים, ונעים. חוויה מטורפת.</p></blockquote>
+      </figure>
+    </div>
+    <div class="testis-more">
+      <button type="button" class="btn btn-ghost" id="moreReviews" aria-controls="testis" aria-expanded="false">להציג עוד משובים</button>
     </div>
   </div>
 </section>
@@ -836,10 +1013,6 @@ footer .role{font-size:.9rem;color:var(--ink-soft);margin-bottom:22px}
 <!-- הזמנה                                                                -->
 <!-- ==================================================================== -->
 <section class="book" id="booking">
-  <div class="vid-bg" aria-hidden="true">
-    <video data-bg src="assets/vid/session.mp4" poster="assets/vid/session.jpg"
-           muted loop playsinline preload="none"></video>
-  </div>
   <div class="wrap">
     <p class="kicker">בואו נדבר</p>
     <h2>לתאם סדנה</h2>
@@ -941,17 +1114,19 @@ footer .role{font-size:.9rem;color:var(--ink-soft);margin-bottom:22px}
       vids[i].pause();
     }
   } else if ("IntersectionObserver" in window) {
+    /* הסרטון מתחיל להיטען ולהתנגן כשהוא עוד מתחת למסך, כך שכשגוללים אליו הוא כבר זז */
     var vidWatch = new IntersectionObserver(function (entries) {
       for (var k = 0; k < entries.length; k++) {
         var v = entries[k].target;
         if (entries[k].isIntersecting) {
+          v.preload = "auto";
           var playing = v.play();
           if (playing && playing.catch) { playing.catch(function () {}); }
         } else {
           v.pause();
         }
       }
-    }, { threshold: 0.12 });
+    }, { rootMargin: "90% 0px 90% 0px", threshold: 0 });
 
     for (i = 0; i < vids.length; i++) {
       vidWatch.observe(vids[i]);
@@ -972,6 +1147,36 @@ footer .role{font-size:.9rem;color:var(--ink-soft);margin-bottom:22px}
     }, { threshold: 0.35 }).observe(hero);
   } else if (floatBtn) {
     floatBtn.setAttribute("data-hidden", "false");
+  }
+
+  /* ---- משובים: כפתור שפותח את כל השאר ---- */
+  var testis = document.getElementById("testis");
+  var moreBtn = document.getElementById("moreReviews");
+
+  if (testis && moreBtn) {
+    var moreLabel = function () {
+      var all = testis.querySelectorAll(".testi");
+      var hidden = 0;
+      for (var h = 0; h < all.length; h++) {
+        if (all[h].offsetParent === null) { hidden++; }
+      }
+      moreBtn.textContent = "להציג עוד " + hidden + " משובים";
+    };
+    moreLabel();
+    window.addEventListener("resize", function () {
+      if (!testis.classList.contains("open")) { moreLabel(); }
+    });
+
+    moreBtn.addEventListener("click", function () {
+      var open = testis.classList.toggle("open");
+      moreBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      if (open) {
+        moreBtn.textContent = "להציג פחות";
+      } else {
+        moreLabel();
+        document.getElementById("reviews").scrollIntoView({ behavior: reduce.matches ? "auto" : "smooth" });
+      }
+    });
   }
 
   /* ---- טופס ההזמנה: בונה הודעת וואטסאפ מוכנה ---- */

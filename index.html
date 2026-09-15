@@ -44,7 +44,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500&family=Assistant:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bellefair&family=Heebo:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 /* ==========================================================================
@@ -67,8 +67,8 @@
   --sandlight:#f2d7b4;    /* חול בהיר, לטקסט על וידאו */
   --line:rgba(78,125,128,.16);
   --shadow:0 18px 50px -30px rgba(44,58,64,.55);
-  --serif:"Frank Ruhl Libre",Georgia,"Times New Roman",serif;
-  --sans:"Assistant","Segoe UI",system-ui,sans-serif;
+  --serif:"Bellefair","Frank Ruhl Libre",Georgia,"Times New Roman",serif;
+  --sans:"Heebo","Segoe UI",system-ui,sans-serif;
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
@@ -96,7 +96,7 @@ a{color:inherit}
 .wrap{width:100%;max-width:640px;margin:0 auto;padding:0 24px}
 section{padding:80px 0}
 .kicker{
-  font-size:.78rem;letter-spacing:.2em;font-weight:600;
+  font-size:clamp(1.02rem,3.6vw,1.2rem);letter-spacing:.03em;font-weight:600;
   color:var(--teal);text-transform:none;margin-bottom:20px;
 }
 .lead{font-size:1.12rem;color:var(--ink-soft)}
@@ -155,7 +155,7 @@ section{padding:80px 0}
 .hero .btn-ghost{color:#fff;border-color:rgba(255,255,255,.45)}
 .hero .btn-ghost:hover{background:rgba(255,255,255,.15);border-color:#fff}
 .hero h1{
-  font-size:clamp(2.15rem,8.5vw,3.15rem);
+  font-size:clamp(2.4rem,9.5vw,3.5rem);
   font-weight:300;
   margin-bottom:20px;
 }
@@ -244,7 +244,7 @@ section{padding:80px 0}
    בלוקים כלליים
    ========================================================================== */
 .block h2{
-  font-size:clamp(1.6rem,6vw,2.1rem);
+  font-size:clamp(1.85rem,7vw,2.5rem);
   margin-bottom:20px;
 }
 .block p + p{margin-top:18px}
@@ -275,7 +275,7 @@ section{padding:80px 0}
 }
 .card{transition:transform .3s ease,box-shadow .3s ease}
 .card:hover{transform:translateY(-4px);box-shadow:0 26px 60px -34px rgba(44,58,64,.7)}
-.card h3{font-size:1.18rem;margin-bottom:10px;color:var(--ink)}
+.card h3{font-size:1.35rem;margin-bottom:10px;color:var(--ink)}
 .card p{font-size:.98rem;color:var(--ink-soft);line-height:1.75}
 .card .mark{
   width:30px;height:30px;border-radius:50%;
@@ -306,6 +306,20 @@ section{padding:80px 0}
 }
 .opt-link:hover{color:#3f696c;border-bottom-color:var(--teal)}
 .opt-link:focus-visible{outline:2px solid var(--teal);outline-offset:4px;border-radius:2px}
+
+/* בועה נושמת בשלושת הכלים */
+#workshop .card .mark{
+  width:44px;height:44px;margin-bottom:18px;
+  animation:bubble 6s ease-in-out infinite;
+  box-shadow:0 0 0 0 rgba(143,182,182,.35);
+}
+#workshop .card:nth-child(2) .mark{animation-delay:-2s}
+#workshop .card:nth-child(3) .mark{animation-delay:-4s}
+@keyframes bubble{
+  0%,100%{transform:scale(.78) translate(0,0);box-shadow:0 0 0 0 rgba(143,182,182,.35)}
+  45%{transform:scale(1.12) translate(-3px,-5px);box-shadow:0 0 0 12px rgba(143,182,182,0)}
+  70%{transform:scale(1.02) translate(2px,-2px)}
+}
 
 /* מהלך הסדנה */
 .flow{margin-top:36px;position:relative;padding-inline-start:26px}
@@ -407,9 +421,8 @@ section{padding:80px 0}
   background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px 24px;
   box-shadow:var(--shadow);
 }
-.testi p{font-family:var(--serif);font-size:1.06rem;line-height:1.7;color:var(--ink);font-weight:300}
+.testi p{font-family:var(--serif);font-size:1.18rem;line-height:1.7;color:var(--ink);font-weight:300}
 .testi span{display:block;margin-top:16px;font-size:.84rem;letter-spacing:.06em;color:var(--teal);font-weight:600}
-.swipe-hint{font-size:.82rem;color:var(--ink-soft);text-align:center;margin-top:-6px}
 
 /* טופס הזמנה */
 .book{
@@ -478,12 +491,16 @@ footer .role{font-size:.9rem;color:var(--ink-soft);margin-bottom:22px}
   section{padding:100px 0}
   .cards{grid-template-columns:repeat(3,1fr);margin-inline:-90px}
   .cards.opts{grid-template-columns:repeat(2,1fr);margin-inline:0}
+  /* במחשב כל המשובים גלויים, בשלושה טורים, בלי גלילה הצידה */
   .testis{
-    margin-inline:-90px;padding-inline:24px;scroll-padding-inline:24px;
-    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 40px,#000 calc(100% - 40px),transparent 100%);
-            mask-image:linear-gradient(90deg,transparent 0,#000 40px,#000 calc(100% - 40px),transparent 100%);
+    display:block;columns:3;column-gap:18px;
+    overflow:visible;scroll-snap-type:none;
+    margin-inline:-90px;padding:6px 0 0;
   }
-  .testi{flex-basis:340px}
+  .testi{
+    display:inline-flex;width:100%;
+    break-inside:avoid;margin-bottom:18px;
+  }
   .card{padding:30px 26px}
 }
 
@@ -571,7 +588,7 @@ footer .role{font-size:.9rem;color:var(--ink-soft);margin-bottom:22px}
       </a>
     </div>
 
-    <div class="testis" tabindex="0" aria-label="משובים של משתתפים, אפשר לגלול הצידה">
+    <div class="testis" tabindex="0" aria-label="משובים של משתתפים">
       <figure class="testi">
         <p>באופן אישי עברתי כמה סדנאות מכל מיני סוגים לטובת שחרור רגשות תקועים, אבל לעולם, באף סדנה, לא חוויתי כזה שחרור וכזה רוגע שהמשיך עוד כמה ימים אחרי.</p>
         <span>עינת, הגיעה עם חברה</span>
@@ -613,7 +630,6 @@ footer .role{font-size:.9rem;color:var(--ink-soft);margin-bottom:22px}
         <span>גברי</span>
       </figure>
     </div>
-    <p class="swipe-hint" aria-hidden="true">החליקו הצידה לעוד משובים</p>
   </div>
 </section>
 
@@ -790,7 +806,6 @@ footer .role{font-size:.9rem;color:var(--ink-soft);margin-bottom:22px}
 <!-- ==================================================================== -->
 <section class="block">
   <div class="wrap">
-    <p class="kicker">הפרטים היבשים</p>
     <h2>מה שכדאי לדעת מראש</h2>
 
     <dl class="facts">

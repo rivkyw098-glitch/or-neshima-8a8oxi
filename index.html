@@ -289,6 +289,24 @@ section{padding:80px 0}
   background:radial-gradient(circle at 38% 32%,#fff 0%,#e8b8ad 58%,var(--rose) 100%);
 }
 
+/* האפשרויות */
+.card:nth-child(4) .mark{
+  background:radial-gradient(circle at 38% 32%,#fff 0%,#c9dfc9 58%,var(--teal) 100%);
+}
+.opts .card{display:flex;flex-direction:column}
+.opts .card p{flex:0 0 auto}
+.card .opt-tag{
+  font-size:.84rem;letter-spacing:.06em;color:var(--teal);font-weight:600;margin:-4px 0 8px;
+}
+.card .opt-tag + p{margin-top:0}
+.opt-link{
+  margin-top:auto;padding-top:18px;align-self:flex-start;
+  color:var(--teal);font-weight:600;font-size:.96rem;text-decoration:none;
+  border-bottom:1px solid var(--teal-soft);
+}
+.opt-link:hover{color:#3f696c;border-bottom-color:var(--teal)}
+.opt-link:focus-visible{outline:2px solid var(--teal);outline-offset:4px;border-radius:2px}
+
 /* מהלך הסדנה */
 .flow{margin-top:36px;position:relative;padding-inline-start:26px}
 .flow::before{
@@ -459,6 +477,7 @@ footer .role{font-size:.9rem;color:var(--ink-soft);margin-bottom:22px}
   body{font-size:1.08rem}
   section{padding:100px 0}
   .cards{grid-template-columns:repeat(3,1fr);margin-inline:-90px}
+  .cards.opts{grid-template-columns:repeat(2,1fr);margin-inline:0}
   .testis{
     margin-inline:-90px;padding-inline:24px;scroll-padding-inline:24px;
     -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 40px,#000 calc(100% - 40px),transparent 100%);
@@ -717,26 +736,51 @@ footer .role{font-size:.9rem;color:var(--ink-soft);margin-bottom:22px}
 </section>
 
 <!-- ==================================================================== -->
-<!-- למי זה מתאים                                                         -->
+<!-- האפשרויות                                                            -->
 <!-- ==================================================================== -->
-<section class="block warm">
+<section class="block warm" id="options">
   <div class="wrap">
-    <p class="kicker">למי זה מתאים</p>
+    <p class="kicker">האפשרויות</p>
     <h2>לבד, בשניים, או עם מי שקרוב אליכם</h2>
     <p>
       כל סדנה נבנית סביב מי שמגיע, וכל משתתף חווה אותה באופן אישי לגמרי,
       גם כשנושמים יחד.
     </p>
 
-    <ul class="ticks">
-      <li><b>ליחידים</b> שמחפשים רגע אמיתי לעצמם, רחוק מהרעש</li>
-      <li><b>לזוגות</b> שרוצים חוויה משותפת שנשארת איתם גם אחרי</li>
-      <li><b>למשפחות ולקבוצות קטנות</b> של חברים קרובים</li>
-      <li><b>לציוני דרך</b> כמו יום נישואין, יום הולדת עגול, או סתם החלטה לפתוח פרק חדש</li>
-    </ul>
+    <div class="cards opts">
+      <article class="card">
+        <div class="mark" aria-hidden="true"></div>
+        <h3>סדנה זוגית</h3>
+        <p>לזוגות שרוצים חוויה משותפת שנשארת איתם גם אחרי.</p>
+        <a class="opt-link" href="#booking" data-pick="סדנה זוגית">לתאם סדנה זוגית</a>
+      </article>
 
-    <p style="margin-top:26px">
-      אפשר גם להעמיק בתהליך אישי מתמשך, במפגשים בקליניקה במצפה רמון.
+      <article class="card">
+        <div class="mark" aria-hidden="true"></div>
+        <h3>סדנה קבוצתית</h3>
+        <p class="opt-tag">עד 5 משתתפים</p>
+        <p>למשפחות ולקבוצות קטנות של חברים קרובים.</p>
+        <a class="opt-link" href="#booking" data-pick="סדנה קבוצתית, עד 5 משתתפים">לתאם סדנה קבוצתית</a>
+      </article>
+
+      <article class="card">
+        <div class="mark" aria-hidden="true"></div>
+        <h3>סדנה קבוצתית פתוחה</h3>
+        <p>אפשר להתעדכן על סדנאות פתוחות בקבוצת הוואטסאפ.</p>
+        <a class="opt-link" href="https://chat.whatsapp.com/F2pI0Me5MqdBJBpg2HF71u" target="_blank" rel="noopener">להצטרפות לקבוצת העדכונים</a>
+      </article>
+
+      <article class="card">
+        <div class="mark" aria-hidden="true"></div>
+        <h3>סשן אישי בקליניקה</h3>
+        <p class="opt-tag">במצפה רמון</p>
+        <p>להעמיק בתהליך אישי מתמשך, במפגשים בקליניקה במצפה רמון.</p>
+        <a class="opt-link" href="#booking" data-pick="סשן אישי בקליניקה">לתאם סשן אישי</a>
+      </article>
+    </div>
+
+    <p style="margin-top:30px">
+      מתאים גם לציוני דרך כמו יום נישואין, יום הולדת עגול, או סתם החלטה לפתוח פרק חדש.
     </p>
   </div>
 </section>
@@ -800,12 +844,11 @@ footer .role{font-size:.9rem;color:var(--ink-soft);margin-bottom:22px}
       </div>
 
       <div class="field">
-        <label for="fWho">מי מגיע</label>
+        <label for="fWho">מה מעניין אתכם</label>
         <select id="fWho" name="who">
-          <option>אני לבד</option>
-          <option>אנחנו זוג</option>
-          <option>משפחה</option>
-          <option>קבוצה קטנה של חברים</option>
+          <option>סדנה זוגית</option>
+          <option>סדנה קבוצתית, עד 5 משתתפים</option>
+          <option>סשן אישי בקליניקה</option>
           <option>עדיין לא בטוח</option>
         </select>
       </div>
@@ -923,6 +966,14 @@ footer .role{font-size:.9rem;color:var(--ink-soft);margin-bottom:22px}
   var form = document.getElementById("bookForm");
   var note = document.getElementById("formNote");
 
+  /* כפתורי "לתאם" בכרטיסי האפשרויות בוחרים מראש את האפשרות בטופס */
+  var picks = document.querySelectorAll("[data-pick]");
+  for (i = 0; i < picks.length; i++) {
+    picks[i].addEventListener("click", function () {
+      if (form) { form.who.value = this.getAttribute("data-pick"); }
+    });
+  }
+
   if (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
@@ -941,11 +992,11 @@ footer .role{font-size:.9rem;color:var(--ink-soft);margin-bottom:22px}
       note.style.color = "";
 
       var lines = [
-        "היי אור, הגעתי דרך האתר ואשמח לתאם סדנת נשימה.",
+        "היי אור, הגעתי דרך האתר ואשמח לתאם.",
         "",
         "שם: " + name,
         "טלפון: " + phone,
-        "מי מגיע: " + form.who.value
+        "מה מעניין: " + form.who.value
       ];
 
       if (form.when.value.trim()) {

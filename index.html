@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>אור רבינוביץ | סדנאות נשימה מעגלית במכתש רמון</title>
 <meta name="description" content="טיפול בנשימה וסדנאות נשימה מעגלית (ריברסינג) עם אור רבינוביץ, בלב מכתש רמון. נשימה, הבעה רגשית ומגע, ליחידים לזוגות ולקבוצות קטנות. שעה וחצי של שקט ושחרור מול השקיעה.">
-<meta name="theme-color" content="#1b2a31">
+<meta name="theme-color" content="#9c5531">
 <meta name="robots" content="noindex, nofollow">
 
 <meta property="og:title" content="אור רבינוביץ | סדנאות נשימה מעגלית במכתש רמון">
@@ -44,7 +44,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bellefair&family=Heebo:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Bellefair&family=Heebo:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 /* ==========================================================================
@@ -52,23 +52,27 @@
    רקע בהיר ואוורירי, טורקיז רך מהלוגו שלו, תכלת, וזהב שקיעה מהתמונה האמיתית.
    ========================================================================== */
 :root{
-  --paper:#faf8f5;        /* רקע ראשי, לבן חמים */
-  --paper-warm:#fbf8f3;   /* רקע חלופי, לבן חמים */
-  --ink:#2c3a40;          /* טקסט ראשי */
-  --ink-soft:#5c6f76;     /* טקסט משני */
-  --teal:#4e7d80;         /* הטורקיז של הלוגו שלו */
-  --teal-soft:#8fb6b6;
-  --sky:#a8cdd7;          /* התכלת שלו */
-  --sand:#e6d9c6;
-  --gold:#d99a4e;         /* זהב השקיעה */
-  --rose:#c08a7d;
-  --dusk:#1b2a31;         /* כהה חמים, לרקעי הווידאו */
-  --ember:#e8874e;        /* הכתום של השקיעה בסרטונים */
-  --sandlight:#f2d7b4;    /* חול בהיר, לטקסט על וידאו */
-  --line:rgba(78,125,128,.16);
-  --shadow:0 18px 50px -30px rgba(44,58,64,.55);
+  /* פלטה חמה מהציור של "נשימה במדבר" (18/11/2026, לבקשת אור: רך, עגול, חמים, ציורי).
+     שמות המשתנים נשארו כמו קודם כדי שכל הכללים ימשיכו לעבוד: --teal הוא עכשיו חימר. */
+  --paper:#f7f0e4;        /* נייר צבעי מים */
+  --paper-warm:#f3e7d4;   /* חול בהיר */
+  --ink:#3d2b20;          /* חום עמוק, כמו הכתב בלוגו */
+  --ink-soft:#6e5646;     /* חום רך */
+  --teal:#9c5531;         /* חימר, צבע המצוק בציור */
+  --teal-soft:#d9a37f;    /* חימר רך */
+  --sky:#e6c39b;          /* אפרסק חולי */
+  --sand:#eadbc3;
+  --gold:#c98a3e;         /* זהב שקיעה */
+  --rose:#c4877a;
+  --sage:#8f9b7a;         /* ירוק השיח בציור */
+  --dusk:#3b2a1f;         /* חום כהה חם, לרקעי הווידאו */
+  --ember:#e8874e;
+  --sandlight:#f6dfbf;
+  --line:rgba(110,80,55,.16);
+  --shadow:0 22px 50px -34px rgba(74,48,30,.45);
   --serif:"Bellefair","Frank Ruhl Libre",Georgia,"Times New Roman",serif;
   --sans:"Heebo","Segoe UI",system-ui,sans-serif;
+  --hand:"Amatic SC","Bellefair",serif;  /* כותרות בכתב יד, כמו בלוגו */
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
@@ -136,18 +140,18 @@ section{padding:80px 0}
 .hero .vid-bg::after{
   background:
     radial-gradient(100% 70% at 50% 40%,
-      rgba(27,42,49,.42) 0%, rgba(27,42,49,.22) 58%, rgba(27,42,49,.08) 100%),
+      rgba(59,40,28,.42) 0%, rgba(59,40,28,.22) 58%, rgba(59,40,28,.08) 100%),
     linear-gradient(180deg,
-      rgba(27,42,49,.5) 0%,
-      rgba(27,42,49,.22) 34%,
-      rgba(27,42,49,.16) 58%,
-      rgba(27,42,49,.5) 86%,
-      rgba(27,42,49,.72) 100%);
+      rgba(59,40,28,.5) 0%,
+      rgba(59,40,28,.22) 34%,
+      rgba(59,40,28,.16) 58%,
+      rgba(59,40,28,.5) 86%,
+      rgba(59,40,28,.72) 100%);
 }
 .hero-inner{position:relative;z-index:2;max-width:520px;width:100%}
 .hero{color:#fff}
 .hero h1,.hero .lead,.hero .kicker,.hero .orb-note{
-  text-shadow:0 2px 26px rgba(19,30,36,.75);
+  text-shadow:0 2px 26px rgba(40,26,18,.75);
 }
 .hero .kicker{color:var(--sandlight)}
 .hero .lead{color:rgba(255,255,255,.88)}
@@ -174,14 +178,14 @@ section{padding:80px 0}
 .orb{
   width:112px;height:112px;border-radius:50%;
   background:radial-gradient(circle at 36% 30%,
-    rgba(255,255,255,.98) 0%, rgba(219,240,244,.92) 42%, rgba(143,182,182,.6) 100%);
-  box-shadow:0 0 54px 14px rgba(219,240,244,.4);
+    rgba(255,255,255,.98) 0%, rgba(250,224,192,.92) 42%, rgba(217,163,127,.6) 100%);
+  box-shadow:0 0 54px 14px rgba(250,224,192,.4);
   animation:breathe 8s ease-in-out infinite;
 }
 @keyframes breathe{
-  0%   {transform:scale(.80);box-shadow:0 0 34px 6px rgba(219,240,244,.3)}
-  50%  {transform:scale(1.24);box-shadow:0 0 78px 22px rgba(219,240,244,.5)}
-  100% {transform:scale(.80);box-shadow:0 0 34px 6px rgba(219,240,244,.3)}
+  0%   {transform:scale(.80);box-shadow:0 0 34px 6px rgba(250,224,192,.3)}
+  50%  {transform:scale(1.24);box-shadow:0 0 78px 22px rgba(250,224,192,.5)}
+  100% {transform:scale(.80);box-shadow:0 0 34px 6px rgba(250,224,192,.3)}
 }
 .orb-note{
   font-size:.84rem;color:var(--ink-soft);letter-spacing:.04em;margin-bottom:30px;
@@ -196,9 +200,9 @@ section{padding:80px 0}
   transition:transform .25s ease,background .25s ease,border-color .25s ease;
 }
 .btn-primary{background:var(--teal);color:#fff}
-.btn-primary:hover{background:#3f696c;transform:translateY(-2px)}
+.btn-primary:hover{background:#84462a;transform:translateY(-2px)}
 .btn-ghost{background:transparent;color:var(--teal);border-color:var(--line)}
-.btn-ghost:hover{border-color:var(--teal-soft);background:rgba(143,182,182,.1)}
+.btn-ghost:hover{border-color:var(--teal-soft);background:rgba(217,163,127,.1)}
 
 .scroll-hint{
   position:absolute;bottom:22px;left:50%;transform:translateX(-50%);
@@ -219,11 +223,11 @@ section{padding:80px 0}
 }
 .quote-sec .vid-bg::after{
   background:linear-gradient(180deg,
-    rgba(27,42,49,.72) 0%, rgba(27,42,49,.44) 42%, rgba(27,42,49,.78) 82%, rgba(27,42,49,.9) 100%);
+    rgba(59,40,28,.72) 0%, rgba(59,40,28,.44) 42%, rgba(59,40,28,.78) 82%, rgba(59,40,28,.9) 100%);
 }
 .quote-sec::after{
   content:"";position:absolute;inset-inline:0;bottom:0;height:110px;z-index:1;
-  background:linear-gradient(180deg,rgba(250,248,245,0),var(--paper));
+  background:linear-gradient(180deg,rgba(247,240,228,0),var(--paper));
   pointer-events:none;
 }
 .quote-sec .wrap{position:relative;z-index:1}
@@ -232,9 +236,9 @@ section{padding:80px 0}
   font-size:clamp(1.4rem,5.8vw,2rem);
   line-height:1.6;color:#fff;
   max-width:540px;margin:0 auto 22px;
-  text-shadow:0 2px 24px rgba(27,42,49,.55);
+  text-shadow:0 2px 24px rgba(59,40,28,.55);
 }
-.quote-sec .kicker{color:var(--sandlight);text-shadow:0 2px 20px rgba(27,42,49,.6)}
+.quote-sec .kicker{color:var(--sandlight);text-shadow:0 2px 20px rgba(59,40,28,.6)}
 .quote-sec blockquote{font-size:clamp(1.22rem,5vw,1.7rem);line-height:1.75}
 .quote-sec cite{
   font-style:normal;font-size:.86rem;letter-spacing:.14em;color:var(--sandlight);
@@ -251,7 +255,7 @@ section{padding:80px 0}
 .block p{color:var(--ink-soft)}
 .block p strong{color:var(--ink);font-weight:600}
 
-.warm{background:linear-gradient(180deg,#fcf7ef 0%,#f8f2e8 100%)}
+.warm{background:linear-gradient(180deg,#f8efe1 0%,#f4e9d8 100%)}
 
 /* על אור */
 .about-photo{
@@ -274,7 +278,7 @@ section{padding:80px 0}
   padding:26px 24px;box-shadow:var(--shadow);
 }
 .card{transition:transform .3s ease,box-shadow .3s ease}
-.card:hover{transform:translateY(-4px);box-shadow:0 26px 60px -34px rgba(44,58,64,.7)}
+.card:hover{transform:translateY(-4px);box-shadow:0 26px 60px -34px rgba(74,48,30,.7)}
 .card h3{font-size:1.35rem;margin-bottom:10px;color:var(--ink)}
 .card p{font-size:.98rem;color:var(--ink-soft);line-height:1.75}
 .card .mark{
@@ -304,7 +308,7 @@ section{padding:80px 0}
   color:var(--teal);font-weight:600;font-size:.96rem;text-decoration:none;
   border-bottom:1px solid var(--teal-soft);
 }
-.opt-link:hover{color:#3f696c;border-bottom-color:var(--teal)}
+.opt-link:hover{color:#84462a;border-bottom-color:var(--teal)}
 .opt-link:focus-visible{outline:2px solid var(--teal);outline-offset:4px;border-radius:2px}
 
 /* בועה נושמת בשלושת הכלים ובאפשרויות */
@@ -312,13 +316,13 @@ section{padding:80px 0}
 #workshop .card .mark,#options .card .mark{
   width:44px;height:44px;margin-bottom:18px;
   animation:bubble 6s ease-in-out infinite;
-  box-shadow:0 0 0 0 rgba(143,182,182,.35);
+  box-shadow:0 0 0 0 rgba(217,163,127,.35);
 }
 #workshop .card:nth-child(2) .mark,#options .card:nth-child(2) .mark{animation-delay:-2s}
 #workshop .card:nth-child(3) .mark,#options .card:nth-child(3) .mark{animation-delay:-4s}
 @keyframes bubble{
-  0%,100%{transform:scale(.78) translate(0,0);box-shadow:0 0 0 0 rgba(143,182,182,.35)}
-  45%{transform:scale(1.12) translate(-3px,-5px);box-shadow:0 0 0 12px rgba(143,182,182,0)}
+  0%,100%{transform:scale(.78) translate(0,0);box-shadow:0 0 0 0 rgba(217,163,127,.35)}
+  45%{transform:scale(1.12) translate(-3px,-5px);box-shadow:0 0 0 12px rgba(217,163,127,0)}
   70%{transform:scale(1.02) translate(2px,-2px)}
 }
 
@@ -356,17 +360,17 @@ section{padding:80px 0}
 .strip .vid-bg::after{
   background:
     radial-gradient(75% 58% at 50% 50%,
-      rgba(27,42,49,.58) 0%, rgba(27,42,49,.28) 55%, rgba(27,42,49,0) 78%),
+      rgba(59,40,28,.58) 0%, rgba(59,40,28,.28) 55%, rgba(59,40,28,0) 78%),
     linear-gradient(180deg,
-      var(--paper) 0%, rgba(250,248,245,0) 24%,
-      rgba(248,242,232,0) 72%, #fcf7ef 100%);
+      var(--paper) 0%, rgba(247,240,228,0) 24%,
+      rgba(244,233,216,0) 72%, #f8efe1 100%);
 }
 .strip-line{
   position:absolute;z-index:1;inset-inline:0;top:50%;transform:translateY(-50%);
   padding:0 26px;
   text-align:center;color:#fff;font-family:var(--serif);font-weight:300;
   font-size:clamp(1.12rem,4.6vw,1.6rem);line-height:1.5;
-  text-shadow:0 2px 26px rgba(27,42,49,.8);
+  text-shadow:0 2px 26px rgba(59,40,28,.8);
 }
 .field-caption{
   font-size:.86rem;color:var(--ink-soft);text-align:center;margin-top:12px;
@@ -431,7 +435,7 @@ section{padding:80px 0}
 .testi blockquote p{font-family:var(--serif);font-size:1.18rem;line-height:1.65;color:var(--ink)}
 .testi-ctx{
   align-self:flex-start;font-size:.8rem;color:var(--teal);font-weight:600;
-  background:rgba(143,182,182,.14);border-radius:20px;padding:2px 12px;
+  background:rgba(217,163,127,.14);border-radius:20px;padding:2px 12px;
 }
 /* בהתחלה מוצגים רק חלק מהמשובים, הכפתור פותח את כל השאר */
 .testis:not(.open) .testi:nth-child(n+6){display:none}
@@ -440,15 +444,15 @@ section{padding:80px 0}
 /* טופס הזמנה */
 .book{
   position:relative;overflow:hidden;
-  background:linear-gradient(180deg,var(--paper-warm) 0%,#f2ece2 100%);
+  background:linear-gradient(180deg,var(--paper-warm) 0%,#efe2cd 100%);
 }
 .book .vid-bg::after{
   background:linear-gradient(180deg,
-    rgba(252,247,239,.9) 0%, rgba(252,247,239,.74) 38%, rgba(242,236,226,.93) 100%);
+    rgba(248,239,225,.9) 0%, rgba(248,239,225,.74) 38%, rgba(239,226,205,.93) 100%);
 }
 .book .wrap{position:relative;z-index:1}
 /* בלי וידאו מאחורי הטופס: הוא כמעט לא נראה דרך השכבה הבהירה, ובטלפון יצא עכור */
-.book{background:linear-gradient(180deg,#f8f2e8 0%,#fcf7ef 45%,#f2ece2 100%)}
+.book{background:linear-gradient(180deg,#f4e9d8 0%,#f8efe1 45%,#efe2cd 100%)}
 .form{
   margin-top:32px;background:#fff;border:1px solid var(--line);
   border-radius:22px;padding:28px 24px;box-shadow:var(--shadow);
@@ -463,13 +467,13 @@ section{padding:80px 0}
   padding:13px 15px;line-height:1.5;
 }
 .field textarea{resize:vertical;min-height:84px}
-.field input::placeholder,.field textarea::placeholder{color:#9bacb2}
+.field input::placeholder,.field textarea::placeholder{color:#b39a86}
 .form .btn{width:100%;margin-top:6px}
 .form-note{font-size:.84rem;color:var(--ink-soft);text-align:center;margin-top:14px}
 
 /* פוטר */
 footer{
-  background:#f2ece2;padding:52px 0 40px;text-align:center;
+  background:#efe2cd;padding:52px 0 40px;text-align:center;
   border-top:1px solid var(--line);
 }
 footer .name{font-family:var(--serif);font-size:1.25rem;margin-bottom:6px}
@@ -482,7 +486,7 @@ footer .role{font-size:.9rem;color:var(--ink-soft);margin-bottom:22px}
   border:1px solid var(--line);border-radius:100px;padding:9px 20px;
   transition:background .25s ease,border-color .25s ease;
 }
-.foot-links a:hover{background:rgba(143,182,182,.14);border-color:var(--teal-soft)}
+.foot-links a:hover{background:rgba(217,163,127,.14);border-color:var(--teal-soft)}
 .foot-fine{font-size:.8rem;color:var(--ink-soft);line-height:1.9}
 
 /* כפתור וואטסאפ צף */
@@ -491,10 +495,10 @@ footer .role{font-size:.9rem;color:var(--ink-soft);margin-bottom:22px}
   display:inline-flex;align-items:center;gap:9px;
   background:var(--teal);color:#fff;text-decoration:none;
   padding:13px 20px;border-radius:100px;font-weight:600;font-size:.95rem;
-  box-shadow:0 12px 30px -12px rgba(44,58,64,.6);
+  box-shadow:0 12px 30px -12px rgba(74,48,30,.6);
   transition:transform .3s ease,background .25s ease,opacity .3s ease;
 }
-.wa-float:hover{background:#3f696c}
+.wa-float:hover{background:#84462a}
 /* מוסתר כל עוד ה-Hero על המסך, כדי לא להסתיר את הכפתורים שם */
 .wa-float[data-hidden="true"]{
   opacity:0;pointer-events:none;transform:translateY(16px);
@@ -523,6 +527,125 @@ footer .role{font-size:.9rem;color:var(--ink-soft);margin-bottom:22px}
   }
   .orb{transform:scale(1)}
 }
+
+/* ==========================================================================
+   סבב עיצוב חמים (18/11/2026). אור ביקש: פחות "AI", צבעים רכים, עגול, חמים, ציורי.
+   ההשראה: הלוגו בצבעי מים "נשימה במדבר". הכל כאן דורס את מה שלמעלה,
+   והגרסה הקודמת שמורה ב-גרסאות-קודמות\.
+   ========================================================================== */
+
+/* נייר צבעי מים: גרעין עדין */
+body{
+  background-color:var(--paper);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .45 0 0 0 0 .32 0 0 0 0 .2 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+/* כתמי צבע רכים ברקע הסקשנים */
+.block,.book,footer{position:relative}
+.block::after{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(38% 26% at 92% 12%,rgba(230,195,155,.22),transparent 70%),
+    radial-gradient(32% 22% at 6% 78%,rgba(143,155,122,.12),transparent 70%);
+}
+.block > .wrap{position:relative;z-index:1}
+.block:nth-of-type(even)::after{
+  background:
+    radial-gradient(36% 24% at 8% 18%,rgba(196,135,122,.13),transparent 70%),
+    radial-gradient(34% 26% at 94% 84%,rgba(230,195,155,.2),transparent 70%);
+}
+
+/* כותרות בכתב יד, כמו הלוגו */
+h1,h2{font-family:var(--hand);font-weight:700;letter-spacing:0;line-height:1.08}
+.hero h1{font-size:clamp(3.1rem,13vw,4.8rem);font-weight:700;margin-bottom:16px}
+.block h2,.book h2{font-size:clamp(2.6rem,10vw,3.5rem);color:var(--ink);margin-bottom:18px}
+.kicker{color:var(--teal);letter-spacing:.02em}
+
+/* קו מפריד: כתם שמש קטן במקום נקודה */
+.divider{background:none;width:90px;height:14px}
+.divider::after{
+  width:14px;height:12px;top:0;
+  border-radius:58% 42% 55% 45% / 48% 56% 44% 52%;
+  background:radial-gradient(circle at 40% 35%,#f6d9b0,var(--gold) 90%);
+  opacity:.8;
+}
+
+/* רכס המכתש: קצה מצויר בראש הסקשנים החמים ובפוטר */
+.warm::before,footer::before{
+  content:"";position:absolute;inset-inline:0;top:-58px;height:60px;z-index:2;pointer-events:none;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 60' preserveAspectRatio='none'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.035 .09' numOctaves='3' seed='4'/%3E%3CfeDisplacementMap in='SourceGraphic' scale='7'/%3E%3C/filter%3E%3Cg filter='url(%23w)'%3E%3Cpath d='M0 40 L90 34 L170 36 L230 22 L420 20 L470 30 L560 33 L640 26 L700 14 L930 12 L980 24 L1060 28 L1130 22 L1200 24 L1200 62 L0 62Z' fill='%23c98a3e' fill-opacity='.16'/%3E%3Cpath d='M0 48 L120 46 L200 40 L330 38 L380 46 L520 48 L600 42 L760 40 L820 32 L1010 30 L1050 40 L1200 44 L1200 62 L0 62Z' fill='%23f8efe1'/%3E%3C/g%3E%3C/svg%3E") bottom/100% 100% no-repeat;
+}
+footer::before{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 60' preserveAspectRatio='none'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.035 .09' numOctaves='3' seed='9'/%3E%3CfeDisplacementMap in='SourceGraphic' scale='7'/%3E%3C/filter%3E%3Cg filter='url(%23w)'%3E%3Cpath d='M0 30 L140 26 L210 14 L470 12 L520 24 L700 28 L760 20 L800 10 L1050 8 L1100 22 L1200 26 L1200 62 L0 62Z' fill='%239c5531' fill-opacity='.16'/%3E%3Cpath d='M0 46 L160 44 L260 36 L400 34 L450 44 L640 46 L720 38 L900 36 L950 44 L1200 46 L1200 62 L0 62Z' fill='%23efe2cd'/%3E%3C/g%3E%3C/svg%3E");
+}
+footer{border-top:none}
+
+/* כרטיסים: נייר רך עם קצוות עגולים ולא אחידים, בלי מסגרות חדות */
+.card,.testi,.form,.facts{
+  border:none;
+  background:
+    radial-gradient(120% 80% at 88% 0%,rgba(230,195,155,.22),transparent 62%),
+    radial-gradient(90% 70% at 0% 100%,rgba(143,155,122,.08),transparent 60%),
+    #fffaf2;
+  box-shadow:0 1px 0 rgba(110,80,55,.06),0 24px 46px -36px rgba(74,48,30,.5);
+}
+.card{border-radius:34px 26px 38px 24px / 28px 36px 24px 34px}
+.card:nth-child(2){border-radius:26px 38px 24px 34px / 36px 26px 34px 24px}
+.card:nth-child(3){border-radius:38px 24px 32px 28px / 24px 34px 28px 36px}
+.card:nth-child(4){border-radius:28px 34px 26px 38px / 32px 24px 38px 26px}
+.card:hover{transform:translateY(-3px) rotate(-.3deg)}
+.testi{border-radius:30px 24px 34px 22px / 24px 32px 22px 30px}
+.testi:nth-child(3n+2){border-radius:24px 32px 22px 30px / 30px 22px 32px 24px}
+.testi:nth-child(3n+3){border-radius:32px 22px 28px 26px / 22px 30px 26px 32px}
+.form{border-radius:40px 30px 44px 28px / 32px 42px 28px 38px;padding:32px 26px}
+.facts{border-radius:30px 24px 34px 26px / 26px 32px 24px 30px}
+.fact{border-bottom-color:rgba(110,80,55,.1)}
+
+/* בועות הצבע בכרטיסים: כתמי צבעי מים */
+.card .mark,.avatar{border-radius:58% 42% 55% 45% / 48% 56% 44% 52%}
+.card .mark{
+  background:radial-gradient(circle at 38% 34%,#fbe9d2 0%,#e6c39b 55%,var(--teal-soft) 100%);
+  box-shadow:inset -3px -4px 8px rgba(156,85,49,.18);
+}
+.card:nth-child(2) .mark{background:radial-gradient(circle at 38% 34%,#fbefd8 0%,#f0cf98 55%,var(--gold) 100%)}
+.card:nth-child(3) .mark{background:radial-gradient(circle at 38% 34%,#fbe6df 0%,#e6b6aa 55%,var(--rose) 100%)}
+.card:nth-child(4) .mark{background:radial-gradient(circle at 38% 34%,#eef0e2 0%,#c3caae 55%,var(--sage) 100%)}
+@keyframes bubble{
+  0%,100%{transform:scale(.82) rotate(0deg);border-radius:58% 42% 55% 45% / 48% 56% 44% 52%}
+  50%{transform:scale(1.1) rotate(8deg);border-radius:45% 55% 42% 58% / 56% 44% 52% 48%}
+}
+.testi:nth-child(4n+1) .avatar{background:var(--teal-soft)}
+.testi:nth-child(4n+4) .avatar{background:var(--sage)}
+
+/* כפתורים: עגולים וחמים */
+.btn{padding:15px 34px}
+.btn-primary{box-shadow:0 10px 24px -14px rgba(156,85,49,.8)}
+.btn-ghost{border-color:rgba(156,85,49,.3)}
+.rating a,.foot-links a{background:#fffaf2;border-color:rgba(156,85,49,.18)}
+.testi-ctx{background:rgba(230,195,155,.3);color:#84462a}
+.field input,.field select,.field textarea{border-radius:18px;background:#fbf5ea;border-color:rgba(110,80,55,.14)}
+
+/* מהלך הסדנה: קו מצויר במקום קו דק */
+.flow::before{width:3px;border-radius:3px;background:linear-gradient(180deg,var(--sky),rgba(201,138,62,.35),transparent);opacity:.7}
+.step::before{
+  width:13px;height:12px;inset-inline-start:-31px;top:8px;
+  border-radius:58% 42% 55% 45% / 48% 56% 44% 52%;
+  background:radial-gradient(circle at 40% 35%,#f6d9b0,var(--teal-soft) 90%);
+}
+.ticks li::before{border-radius:58% 42% 55% 45% / 48% 56% 44% 52%;width:10px;height:9px;background:var(--teal-soft)}
+
+/* תמונות ווידאו בסקשנים: פינות רכות */
+.field-photo{border:none;border-radius:40px 28px 44px 30px / 30px 42px 28px 40px}
+.about-photo{border:none;border-radius:58% 42% 55% 45% / 48% 56% 44% 52%;background:radial-gradient(circle at 40% 35%,#fbe9d2,var(--sand))}
+
+/* ה-Hero: שמש חמה במקום אורב קריר */
+.orb{
+  background:radial-gradient(circle at 38% 32%,
+    rgba(255,248,236,.98) 0%, rgba(248,214,170,.92) 45%, rgba(214,140,82,.6) 100%);
+}
+.orb-ring{border-color:rgba(255,236,210,.28)}
+.orb-ring.two{border-color:rgba(255,236,210,.36)}
+.hero .kicker{font-size:clamp(1.05rem,3.8vw,1.25rem)}
+
 </style>
 </head>
 <body>

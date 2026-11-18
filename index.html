@@ -12,7 +12,7 @@
 <meta property="og:description" content="לנשום אל מה שמעכב חיים. טיפול וסדנאות נשימה מעגלית בלב מכתש רמון, ליחידים, לזוגות ולקבוצות קטנות.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="he_IL">
-<meta property="og:image" content="assets/vid/hero.jpg">
+<meta property="og:image" content="assets/logo-banner.jpg">
 
 <script type="application/ld+json">
 {
@@ -646,6 +646,12 @@ footer{border-top:none}
 .orb-ring.two{border-color:rgba(255,236,210,.36)}
 .hero .kicker{font-size:clamp(1.05rem,3.8vw,1.25rem)}
 
+
+/* הלוגו בראש הדף, ברוחב מלא, ביחס המקורי שלו */
+.brand-banner{background:#efe4d2;line-height:0}
+.brand-banner img{width:100%;height:auto;max-height:440px;object-fit:cover;object-position:center 30%}
+/* בטלפון: גבוה יותר וממורכז על הכיתוב, שלא ייצא זעיר */
+@media (max-width:600px){.brand-banner img{height:150px;object-position:42% 20%}}
 </style>
 </head>
 <body>
@@ -653,6 +659,14 @@ footer{border-top:none}
 <!-- ==================================================================== -->
 <!-- HERO                                                                 -->
 <!-- ==================================================================== -->
+<!-- ==================================================================== -->
+<!-- הלוגו של אור: "נשימה במדבר", ציור צבעי מים (18/11/2026)              -->
+<!-- ==================================================================== -->
+<div class="brand-banner">
+  <img src="assets/logo-banner.jpg" width="1600" height="400"
+       alt="נשימה במדבר, סדנאות נשימה מעגלית">
+</div>
+
 <header class="hero">
   <div class="vid-bg" aria-hidden="true">
     <video data-bg data-wide="assets/vid/hero-wide.mp4" data-wide-poster="assets/vid/hero-wide.jpg"

@@ -836,6 +836,44 @@ footer{border-top:none}
                      linear-gradient(to bottom,transparent 0%,#000 14%,#000 86%,transparent 100%);
           mask-composite:intersect;
 }
+
+/* ==========================================================================
+   סרטון בצד וכיתוב צמוד לידו (26/11/2026). ריבקי: "הסרטון בצד, הכיתוב ליד, לא מעל, ובלי מקום ריק".
+   במחשב ובטאבלט: שני טורים, הסרטון בצד אחד והטקסט באמצע הגובה שלו, צמוד אליו.
+   בטלפון: הטקסט ומיד מתחתיו הסרטון, בלי רווח.
+   ========================================================================== */
+.feature-text{text-align:center}
+.feature-line{font-size:clamp(1.6rem,6.4vw,2.4rem)}
+.feature-sub{font-size:clamp(2.1rem,8.6vw,3.1rem)}
+@media (max-width:719px){
+  .feature-grid{flex-direction:column-reverse}
+  .feature-text{padding:8px 24px 0}
+  .media-tall,.media-wide{margin-top:-6px}
+}
+@media (min-width:720px){
+  .feature{padding:56px 24px}
+  .feature-grid{
+    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;
+    gap:clamp(24px,4vw,56px);max-width:1080px;margin:0 auto;
+  }
+  .feature.rev .feature-grid{flex-direction:initial}
+  .feature .media-tall{width:100%;max-width:500px;margin:0;justify-self:start}
+  .feature .feature-text{max-width:430px;padding:0;text-align:start;justify-self:end}
+  .feature.rev .media-tall{order:2;justify-self:end}
+  .feature.rev .feature-text{order:1;justify-self:start}
+
+  .quote-sec{padding:84px 24px 140px}
+  .quote-sec .wrap{
+    max-width:1120px;display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);
+    align-items:center;gap:clamp(24px,4vw,56px);text-align:start;
+  }
+  .quote-sec .wrap > :not(.media-wide){max-width:none;margin-inline:0}
+  .quote-sec .what-col{text-align:start}
+  .quote-sec blockquote,.what-more{margin-inline:0;max-width:none;text-align:start}
+  .quote-sec .media-wide{
+    width:100%;max-width:none;margin:0;left:auto;transform:none;aspect-ratio:4/3;
+  }
+}
 </style>
 </head>
 <body>
@@ -879,6 +917,7 @@ footer{border-top:none}
 <!-- ==================================================================== -->
 <section class="quote-sec" id="what">
   <div class="wrap">
+    <div class="what-col">
     <p data-t="what-kicker" class="kicker">מהי נשימה מעגלית</p>
     <blockquote data-t="what-text">נשימה מעגלית היא כלי עדין ועוצמתי להרפיה עמוקה. דרך נשימה רציפה הגוף משחרר מתחים עומסים ורגשות שהצטברו בו, ומאפשר לאנרגיה חדשה לזרום בגוף ובתודעה.</blockquote>
     <div class="what-more" id="whatMore" hidden>
@@ -887,6 +926,7 @@ footer{border-top:none}
       <p data-t="what-more-3">נשימה מעגלית מאפשרת לפגוש מחדש את התחושות והרגשות שלא קיבלו מקום, להסכים להרגיש אותם כאן ועכשיו, ולתת להם לנוע ולהשתחרר. מתוך השחרור הזה עולה קלילות ושמחה טבעית – לא משהו חדש שצריך להשיג, אלא משהו שכבר קיים בנו ומחכה שיתנו לו מקום.</p>
     </div>
     <button type="button" class="more-btn" id="whatMoreBtn" aria-controls="whatMore" aria-expanded="false"><span data-t="what-more-btn">קראו עוד</span></button>
+    </div>
     <figure class="media-frame media-wide">
       <video data-bg src="assets/vid/sky.mp4" poster="assets/vid/sky.jpg"
              muted loop playsinline preload="none"

@@ -874,6 +874,15 @@ footer{border-top:none}
     width:100%;max-width:none;margin:0;left:auto;transform:none;aspect-ratio:4/3;
   }
 }
+
+/* תיקון (26/11/2026): הסרטון והכיתוב צמודים במרכז, בלי חור ביניהם.
+   העמודות ברוחב התוכן שלהן, וכל הזוג ממורכז בדף. */
+@media (min-width:720px){
+  .feature-grid{grid-template-columns:auto minmax(0,400px);justify-content:center;gap:clamp(28px,3.5vw,48px);max-width:none}
+  .feature.rev .feature-grid{grid-template-columns:minmax(0,400px) auto}
+  .feature .media-tall,.feature.rev .media-tall{width:clamp(320px,36vw,460px);justify-self:center}
+  .feature .feature-text,.feature.rev .feature-text{justify-self:stretch;max-width:400px}
+}
 </style>
 </head>
 <body>

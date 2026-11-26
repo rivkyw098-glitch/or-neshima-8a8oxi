@@ -798,6 +798,44 @@ footer{border-top:none}
   .feature.rev .feature-grid{flex-direction:row-reverse}
   .media-tall{width:360px}
 }
+
+/* ==========================================================================
+   סרטונים בלי מסגרת (26/11/2026). ריבקי: "קטנים מדי, עם שקיפות ולא במסגרת, שישתלב".
+   גדולים יותר, והשוליים נמסים לרקע כמו צבעי מים (mask עם מעבר רך), בלי פינות וצל.
+   ========================================================================== */
+.media-frame{
+  border-radius:0;box-shadow:none;background:transparent;
+  -webkit-mask-image:radial-gradient(ellipse 72% 68% at 50% 50%,#000 52%,rgba(0,0,0,.6) 70%,transparent 100%);
+          mask-image:radial-gradient(ellipse 72% 68% at 50% 50%,#000 52%,rgba(0,0,0,.6) 70%,transparent 100%);
+}
+.media-tall{width:calc(100% + 48px);max-width:560px;margin-inline:-24px}
+.media-wide{width:calc(100% + 48px);max-width:none;margin:22px -24px 0;aspect-ratio:800/414}
+.media-wide{
+  -webkit-mask-image:radial-gradient(ellipse 70% 66% at 50% 50%,#000 50%,rgba(0,0,0,.55) 70%,transparent 100%);
+          mask-image:radial-gradient(ellipse 70% 66% at 50% 50%,#000 50%,rgba(0,0,0,.55) 70%,transparent 100%);
+}
+.feature{padding:40px 0 56px}
+.feature-grid{gap:6px}
+.feature-text{padding:0 24px}
+@media (min-width:820px){
+  .media-tall{width:520px;max-width:none;margin-inline:0}
+  .media-wide{width:min(1000px,100vw);margin:26px auto 0;position:relative;left:50%;transform:translateX(-50%)}
+  .feature{padding:30px 0 40px}
+  .feature-grid{max-width:1100px;gap:10px}
+  .feature-text{max-width:460px}
+  .quote-sec .wrap{max-width:none}
+  .quote-sec .wrap > :not(.media-wide){max-width:640px;margin-inline:auto}
+}
+
+/* שוליים רכים מכל ארבעת הצדדים: שני מעברים (רוחב וגובה) שנחתכים זה בזה */
+.media-frame,.media-wide{
+  -webkit-mask-image:linear-gradient(to right,transparent 0%,#000 18%,#000 82%,transparent 100%),
+                     linear-gradient(to bottom,transparent 0%,#000 14%,#000 86%,transparent 100%);
+  -webkit-mask-composite:source-in;
+          mask-image:linear-gradient(to right,transparent 0%,#000 18%,#000 82%,transparent 100%),
+                     linear-gradient(to bottom,transparent 0%,#000 14%,#000 86%,transparent 100%);
+          mask-composite:intersect;
+}
 </style>
 </head>
 <body>

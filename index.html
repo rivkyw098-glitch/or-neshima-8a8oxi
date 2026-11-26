@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.className+=" t-wait";setTimeout(function(){document.documentElement.classList.remove("t-wait")},1500);</script>
 <title>אור רבינוביץ | סדנאות נשימה מעגלית במכתש רמון</title>
 <meta name="description" content="טיפול בנשימה וסדנאות נשימה מעגלית (ריברסינג) עם אור רבינוביץ, בלב מכתש רמון. נשימה, הבעה רגשית ומגע, ליחידים לזוגות ולקבוצות קטנות. שעה וחצי של שקט ושחרור מול השקיעה.">
 <meta name="theme-color" content="#9c5531">
@@ -689,11 +690,11 @@ footer{border-top:none}
   font-family:var(--serif);font-size:clamp(1.35rem,5.6vw,1.85rem);line-height:1.4;
   color:var(--tx);text-shadow:0 0 24px var(--glow);
   opacity:0;transform:translateY(-50%);
-  animation:lineBreath 32s ease-in-out infinite;
+  animation:lineBreath 20s ease-in-out infinite;
 }
-.breath-line:nth-child(2){animation-delay:8s}
-.breath-line:nth-child(3){animation-delay:16s}
-.breath-line:nth-child(4){animation-delay:24s}
+.breath-line:nth-child(2){animation-delay:5s}
+.breath-line:nth-child(3){animation-delay:10s}
+.breath-line:nth-child(4){animation-delay:15s}
 @keyframes lineBreath{
   0%   {opacity:0;filter:blur(8px);transform:translateY(calc(-50% + 14px)) scale(.96)}
   11%  {opacity:1;filter:blur(0);  transform:translateY(-50%) scale(1)}
@@ -716,6 +717,54 @@ footer{border-top:none}
 
 /* פס לבן מפריד מתחת לסרטון הפתיחה */
 .hero-sep{height:22px;background:#fff;box-shadow:0 1px 0 rgba(110,80,55,.08),0 -1px 0 rgba(110,80,55,.08);position:relative;z-index:3}
+
+/* ==========================================================================
+   סבב השינויים של אור (26/11/2026)
+   ========================================================================== */
+/* בלי הבהוב: טקסט הפתיחה מופיע רק אחרי שהגיליון ענה (לכל היותר 1.5 שניות) */
+.breath-hero .hero-inner{transition:opacity .7s ease}
+.t-wait .breath-hero .hero-inner{opacity:0}
+
+/* "קראו עוד" ב"מהי נשימה מעגלית" */
+.what-more{max-width:560px;margin:0 auto 18px;text-align:center}
+.what-more p{color:rgba(255,255,255,.93);font-size:1.06rem;line-height:1.9;text-shadow:0 2px 18px rgba(40,26,18,.7)}
+.what-more p + p{margin-top:16px}
+.more-btn{
+  display:inline-flex;align-items:center;gap:8px;margin:4px auto 0;cursor:pointer;
+  font-family:var(--sans);font-size:.98rem;font-weight:600;color:#fff;
+  background:rgba(255,248,236,.16);border:1px solid rgba(255,248,236,.55);border-radius:100px;padding:9px 22px;
+  backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);transition:background .25s ease;
+}
+.more-btn:hover{background:rgba(255,248,236,.28)}
+.more-btn::after{content:"";width:7px;height:7px;border:solid currentColor;border-width:0 2px 2px 0;transform:rotate(45deg) translateY(-2px);transition:transform .3s ease}
+.more-btn[aria-expanded="true"]::after{transform:rotate(-135deg) translateY(-2px)}
+
+/* "מרחב בטוח להיות מי שאתם": גדול ובכתב יד */
+.about-sign{font-family:var(--hand);font-weight:700;font-size:clamp(2.1rem,8vw,2.8rem);line-height:1.15;color:var(--teal);margin-top:30px}
+
+/* הרצועה עם תמונת המזרנים בשקיעה */
+.strip-photo .vid-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 64%}
+.strip-line p{margin:0}
+.strip-line .strip-sub{font-family:var(--hand);font-weight:700;font-size:clamp(1.6rem,6.4vw,2.3rem);margin-top:6px;color:var(--sandlight)}
+
+/* שאלות ותשובות */
+.faq{margin-top:26px;display:grid;gap:12px}
+.faq-item{
+  background:radial-gradient(120% 80% at 88% 0%,rgba(230,195,155,.2),transparent 62%),#fffaf2;
+  border-radius:26px 20px 28px 18px / 20px 26px 18px 28px;
+  box-shadow:0 1px 0 rgba(110,80,55,.06),0 20px 40px -34px rgba(74,48,30,.5);
+}
+.faq-item summary{
+  list-style:none;cursor:pointer;padding:18px 22px;font-family:var(--serif);font-size:1.18rem;color:var(--ink);
+  display:flex;justify-content:space-between;align-items:center;gap:14px;
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{
+  content:"+";flex:0 0 auto;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;
+  font-family:var(--sans);font-size:1.15rem;color:#fff;background:var(--teal-soft);transition:transform .3s ease;
+}
+.faq-item[open] summary::after{transform:rotate(45deg);background:var(--teal)}
+.faq-item p{padding:0 22px 20px;color:var(--ink-soft);line-height:1.85}
 </style>
 </head>
 <body>
@@ -735,14 +784,14 @@ footer{border-top:none}
   <div class="hero-inner">
     <h1 class="sr-only">נשימה במדבר, סדנאות נשימה מעגלית במכתש רמון</h1>
     <p data-t="hero-title" class="brand-title" aria-hidden="true">נשימה במדבר</p>
-    <p data-t="hero-sub" class="brand-sub" aria-hidden="true">סדנאות נשימה מעגלית</p>
+    <p data-t="hero-sub" class="brand-sub" aria-hidden="true">סדנאות נשימה מעגלית במכתש רמון</p>
 
     <!-- המשפטים של אור, מילה במילה. כל משפט הוא נשימה אחת: שאיפה פנימה, נשיפה החוצה -->
     <div class="breath-lines">
       <p data-t="hero-line-1" class="breath-line">לתת שקט לחלחל פנימה</p>
       <p data-t="hero-line-2" class="breath-line">סדנאות לזוגות וקבוצות קטנות</p>
       <p data-t="hero-line-3" class="breath-line">שעה וחצי של שקט, שחרור והתרחבות</p>
-      <p data-t="hero-line-4" class="breath-line">נשימה רציפה, בלי עצירה בין השאיפה לנשיפה</p>
+      <p data-t="hero-line-4" class="breath-line" hidden>נשימה רציפה, בלי עצירה בין השאיפה לנשיפה</p>
     </div>
 
     <div class="btn-row">
@@ -764,10 +813,13 @@ footer{border-top:none}
   </div>
   <div class="wrap">
     <p data-t="what-kicker" class="kicker">מהי נשימה מעגלית</p>
-    <blockquote data-t="what-text">
-      נשימה מעגלית היא טכניקה פשוטה של נשימה רציפה, המאפשרת לשחרר את הרעש במחשבה
-      ולהחזיר את הקשב אל הגוף, אל התחושות, הרגשות ומה שמבקש לקבל מקום.
-    </blockquote>
+    <blockquote data-t="what-text">נשימה מעגלית היא כלי עדין ועוצמתי להרפיה עמוקה. דרך נשימה רציפה הגוף משחרר מתחים עומסים ורגשות שהצטברו בו, ומאפשר לאנרגיה חדשה לזרום בגוף ובתודעה.</blockquote>
+    <div class="what-more" id="whatMore" hidden>
+      <p data-t="what-more-1">הנשימה היא מקור החיים.<br>והיא כמו מראה למצבנו הפנימי.<br>היא מגיבה למה שאנחנו חווים:<br>בתקופות של עומס או מתח היא נוטה להיות קצרה ושטחית,<br>וכשאנחנו מרגישים בטוחים ונינוחים – היא יכולה להיות עמוקה, רחבה וחופשית יותר.</p>
+      <p data-t="what-more-2">לאורך החיים אנחנו חווים רגעים של פחד, כאב, מתח או חוסר ביטחון שבהם משהו בנו מתכווץ. לעיתים עצרנו את הנשימה או צמצמנו אותה כדי להתמודד, ועם הזמן הכיווץ הזה הפך להרגל שאנחנו כבר לא שמים לב אליו.</p>
+      <p data-t="what-more-3">נשימה מעגלית מאפשרת לפגוש מחדש את התחושות והרגשות שלא קיבלו מקום, להסכים להרגיש אותם כאן ועכשיו, ולתת להם לנוע ולהשתחרר. מתוך השחרור הזה עולה קלילות ושמחה טבעית – לא משהו חדש שצריך להשיג, אלא משהו שכבר קיים בנו ומחכה שיתנו לו מקום.</p>
+    </div>
+    <button type="button" class="more-btn" id="whatMoreBtn" aria-controls="whatMore" aria-expanded="false"><span data-t="what-more-btn">קראו עוד</span></button>
   </div>
 </section>
 
@@ -1008,18 +1060,11 @@ footer{border-top:none}
 <!-- ==================================================================== -->
 <section class="block warm" id="about">
   <div class="wrap">
-    <p data-t="about-kicker" class="kicker">מי אני</p>
-    <h2 data-t="about-title">נעים להכיר, אני אור</h2>
+    <p data-t="about-kicker" class="kicker" hidden>מי אני</p>
+    <h2 data-t="about-title">מי אני</h2>
 
-    <p data-t="about-p1">
-      <strong>אור רבינוביץ</strong>, מנחה סדנאות גוף-נפש ומלווה תהליכים אישיים וקבוצתיים.
-      גר במצפה רמון, נשוי למירי ואבא טרי לטל המתוק.
-    </p>
-    <p data-t="about-p2">
-      מתוך מסע חיים שכלל התמודדות עם דיכאון וחרדה גיליתי את הריפוי שיש בנשימה ובחיבור לרגשות.
-      חווית החיים האישית שלי הובילה אותי לחקור וללמוד כלים שעוזרים לפגוש ברכות וחמלה
-      את האנושיות שבנו, במטרה לחיות חיים מלאים ומחוברים יותר.
-    </p>
+    <p data-t="about-p1"><strong>אור רבינוביץ</strong>, מנחה סדנאות גוף-נפש ומלווה תהליכים אישיים וקבוצתיים. גר במצפה רמון, נשוי למירי ואבא טרי לטל המתוק.</p>
+    <p data-t="about-p2">מתוך מסע חיים שכלל התמודדות עם דיכאון וחרדה גיליתי את הריפוי שיש בנשימה ובחיבור לרגשות. חווית החיים האישית שלי הובילה אותי לחקור וללמוד כלים שעוזרים לפגוש ברכות וחמלה את האנושיות שבנו, במטרה לחיות חיים מלאים ומחוברים יותר.</p>
 
     <p data-t="about-sign" class="about-sign">מרחב בטוח להיות מי שאתם</p>
   </div>
@@ -1031,38 +1076,26 @@ footer{border-top:none}
 <section class="block" id="workshop">
   <div class="wrap">
     <p data-t="tools-kicker" class="kicker">מה עובד שם</p>
-    <h2 data-t="tools-title">שלושה כלים, שפועלים יחד</h2>
-    <p data-t="tools-intro">
-      הסדנה בנויה על שילוב של שקט המדבר עם שלושה כלים פשוטים. אין צורך בניסיון קודם,
-      בגמישות או בידע כלשהו. רק ברצון לנשום.
-    </p>
+    <h2 data-t="tools-title">שלושה כלים שעובדים</h2>
+    <p data-t="tools-intro">השילוב של השקט והמרחב של המכתש יחד תרגילי נשימה מעגלית והבעה רגשית</p>
 
     <div class="cards">
       <article class="card">
         <div class="mark" aria-hidden="true"></div>
         <h3 data-t="tool1-title">נשימה מעגלית</h3>
-        <p data-t="tool1-text">
-          נשימה רציפה, בלי עצירות בין השאיפה לנשיפה. היא מרככת את המתח בגוף
-          ומאפשרת למה שנשמר בפנים לעלות ולהשתחרר.
-        </p>
+        <p data-t="tool1-text">נשימה רציפה, בלי עצירות בין השאיפה לנשיפה. היא מרככת את המתח בגוף ומאפשרת למה שנשמר בפנים לעלות ולהשתחרר.</p>
       </article>
 
       <article class="card">
         <div class="mark" aria-hidden="true"></div>
         <h3 data-t="tool2-title">הבעה רגשית</h3>
-        <p data-t="tool2-text">
-          מרחב לתת קול ותנועה לרגשות שהודחקו או נשכחו. אין כאן נכון ולא נכון,
-          יש רק את מה שעולה ברגע הזה.
-        </p>
+        <p data-t="tool2-text">מרחב חופשי לשחרר דרך קול ותנועה רגשות כמו כעס, כאב, פחד שמחה ואהבה  שהודחקו או נשכחו.<br>אני נותן דגשים לפי הצורך <br>לכל רגש תנועה וקול משלו</p>
       </article>
 
       <article class="card">
         <div class="mark" aria-hidden="true"></div>
-        <h3 data-t="tool3-title">מגע מדייק</h3>
-        <p data-t="tool3-text">
-          לפעמים מגע שנועד לקרקע ולהזכיר שיש מישהו כאן איתכם, ולפעמים מגע עמוק יותר
-          שפוגש את מה שהתכווץ ונותן לו מקום להתרחב.
-        </p>
+        <h3 data-t="tool3-title">הטבע העוצמתי</h3>
+        <p data-t="tool3-text">השקט, המרחב והאור של המכתש מחזיקים את כל התהליך, ועוזרים לגוף להרפות ולהיפתח.</p>
       </article>
     </div>
   </div>
@@ -1077,48 +1110,53 @@ footer{border-top:none}
   <div class="wrap">
     <p data-t="flow-kicker" class="kicker">מה קורה בסדנה</p>
     <h2 data-t="flow-title">איך נראית שעה וחצי במכתש</h2>
-    <p data-t="flow-intro">
-      המעבר מהעומס של היום יום לקצב של המכתש יכול להיות חד. לכן הסדנה מתחילה לאט,
-      ורק אז נכנסים לנשימה.
-    </p>
+    <p data-t="flow-intro">כדי שהמעבר מהעומס של היום יום לנשימה יהיה רך, אנחנו מתחילים את הסדנה לאט, ונותנים לגוף זמן לנחות ולהכנס לקצב של המכתש</p>
 
     <div class="flow">
       <div class="step">
-        <h3 data-t="step1-title">מגיעים ומתיישבים</h3>
-        <p data-t="step1-text">מזרנים, כריות ושמיכות פרושים על הקרקע, אבנים מונחות עליהם כדי שהרוח לא תיקח אותם, ומים קרים מחכים לכם.</p>
+        <h3 data-t="step1-title">הגעה</h3>
+        <p data-t="step1-text">מגיעים למיקום שקט ומדהים, כשהמכתש מקיף אותנו מכל עבר. מחכים לכם מחצלות, מזרונים וכיבוד קל.</p>
       </div>
       <div class="step">
-        <h3 data-t="step2-title">כמה דקות של שקט</h3>
-        <p data-t="step2-text">מדיטציה קצרה של קרקוע והרפיה. מניחים לעולם החיצוני, שוקעים פנימה, ושמים כוונה למה שרוצים לפגוש ולשחרר.</p>
+        <h3 data-t="step2-title">שיחה</h3>
+        <p data-t="step2-text">הסבר קצר על הסדנה ועל מה שיהיה בה.</p>
       </div>
       <div class="step">
-        <h3 data-t="step3-title">נושמים מול השקיעה</h3>
-        <p data-t="step3-text">מכאן מתחילה הנשימה המעגלית. אני נמצא לצידכם לאורך כל הדרך, מלווה בקול, לפעמים במגע, ותמיד בקצב שלכם.</p>
+        <h3 data-t="step3-title">מדיטציה</h3>
+        <p data-t="step3-text">מדיטציה של קרקוע והרפיה. מניחים לעולם החיצוני, מתחברים פנימה, ושמים כוונה למה שרוצים לפגוש ולשחרר.</p>
       </div>
       <div class="step">
-        <h3 data-t="step4-title">תה חם וחזרה</h3>
-        <p data-t="step4-text">בסוף, כשהשמש כבר ירדה, מתיישבים עם תה חם. יש באוויר אנרגיה רכה של שחרור, ולא ממהרים לשום מקום.</p>
+        <h3 data-t="step4-title">תרגילי חימום לנשימה</h3>
+        <p data-t="step4-text">תרגילי נשימה שונים שיעזרו לנו לנשום בפחות מאמץ.</p>
+      </div>
+      <div class="step">
+        <h3 data-t="step5-title">נשימה מעגלית</h3>
+        <p data-t="step5-text">הקסם מתחיל. דרך הנשימה צוללים פנימה, ואני איתכם, מנחה, מלווה ותומך בכל צורך שעולה.</p>
+      </div>
+      <div class="step">
+        <h3 data-t="step6-title">תרגול אהבה עצמית והרפיה</h3>
+        <p data-t="step6-text">רגע של רכות כלפי עצמנו. נותנים לגוף לנוח, ומרגישים את מה שנפתח ושהשתחרר.</p>
+      </div>
+      <div class="step">
+        <h3 data-t="step7-title">אינטגרציה ושיתוף</h3>
+        <p data-t="step7-text">לאט לאט חוזרים מהביקור בעולם הפנימי, פותחים עיניים לשקט של המכתש, לשקיעה שיורדת, לשמש שעולה, או לכוכבים בשמיים. מי שרוצה משתף, ונותנים לחוויה להתיישב.</p>
       </div>
     </div>
 
-    <figure class="field-photo">
-      <video data-bg src="assets/vid/session.mp4" poster="assets/vid/session.jpg"
-             muted loop playsinline preload="none"
-             aria-label="רגעים מתוך סדנה במכתש, מזרנים וכריות על הקרקע, מים קרים ופירות"></video>
-    </figure>
-    <p data-t="flow-caption" class="field-caption">רגעים מתוך סדנה, בשטח</p>
   </div>
 </section>
 
 <!-- ==================================================================== -->
 <!-- רצועת וידאו                                                          -->
 <!-- ==================================================================== -->
-<section class="strip" aria-label="רצועת וידאו מתוך סדנה במכתש">
+<section class="strip strip-photo" aria-label="מזרנים פרושים במכתש בשקיעה">
   <div class="vid-bg" aria-hidden="true">
-    <video data-bg src="assets/vid/sky.mp4" poster="assets/vid/sky.jpg"
-           muted loop playsinline preload="none"></video>
+    <img src="assets/strip-mattress.jpg" alt="" width="1066" height="1600" loading="lazy">
   </div>
-  <p data-t="strip-1" class="strip-line">לנשום ולשחרר את מה שמונע ומעכב חיות</p>
+  <div class="strip-line">
+    <p data-t="strip-1">לנשום ולשחרר את מה שמעכב חיים</p>
+    <p data-t="strip-1b" class="strip-sub">עומק החיים כעומק הנשימה</p>
+  </div>
 </section>
 
 <!-- ==================================================================== -->
@@ -1128,10 +1166,7 @@ footer{border-top:none}
   <div class="wrap">
     <p data-t="opt-kicker" class="kicker">האפשרויות</p>
     <h2 data-t="opt-title">לבד, בשניים, או עם מי שקרוב אליכם</h2>
-    <p data-t="opt-intro">
-      כל סדנה נבנית סביב מי שמגיע, וכל משתתף חווה אותה באופן אישי לגמרי,
-      גם כשנושמים יחד.
-    </p>
+    <p data-t="opt-intro">כל סדנה נבנית סביב מי שמגיע, וכל משתתף חווה אותה באופן אישי לגמרי, גם כשנושמים יחד.</p>
 
     <div class="cards opts">
       <article class="card">
@@ -1144,9 +1179,9 @@ footer{border-top:none}
       <article class="card">
         <div class="mark" aria-hidden="true"></div>
         <h3 data-t="opt2-title">סדנה קבוצתית</h3>
-        <p data-t="opt2-tag" class="opt-tag">עד 5 משתתפים</p>
+        <p data-t="opt2-tag" class="opt-tag">עד 7 משתתפים</p>
         <p data-t="opt2-text">למשפחות ולקבוצות קטנות של חברים קרובים.</p>
-        <a data-t="opt2-link" class="opt-link" href="#booking" data-pick="סדנה קבוצתית, עד 5 משתתפים">לתאם סדנה קבוצתית</a>
+        <a data-t="opt2-link" class="opt-link" href="#booking" data-pick="סדנה קבוצתית, עד 7 משתתפים">לתאם סדנה קבוצתית</a>
       </article>
 
       <article class="card">
@@ -1165,7 +1200,7 @@ footer{border-top:none}
       </article>
     </div>
 
-    <p data-t="opt-note" style="margin-top:30px">
+    <p data-t="opt-note" style="margin-top:30px" hidden>
       מתאים גם לציוני דרך כמו יום נישואין, יום הולדת עגול, או סתם החלטה לפתוח פרק חדש.
     </p>
   </div>
@@ -1191,6 +1226,38 @@ footer{border-top:none}
 </section>
 
 <!-- ==================================================================== -->
+<!-- שאלות ותשובות, מתוך ההיילייט "שאלות ותשובות" באינסטגרם של אור (26/11/2026) -->
+<!-- ==================================================================== -->
+<section class="block" id="faq">
+  <div class="wrap">
+    <p class="kicker" data-t="faq-kicker">שאלות ששואלים אותי</p>
+    <h2 data-t="faq-title">שאלות ותשובות</h2>
+    <div class="faq">
+      <details class="faq-item">
+        <summary data-t="faq1-q">רוצה להצטרף לסדנה, יש אפשרויות?</summary>
+        <p data-t="faq1-a">כן. רוב הסדנאות שלי הן פרטיות (זוגיות או קבוצתיות), אבל אחת לתקופה יש סדנה פתוחה שאפשר להצטרף אליה. יש קבוצת וואטסאפ שקטה שבה אני מעדכן על תאריכים שנפתחים. אפשר לשלוח לי הודעה ואשלח קישור להצטרפות.</p>
+      </details>
+      <details class="faq-item">
+        <summary data-t="faq2-q">יש סדנאות אישיות?</summary>
+        <p data-t="faq2-a">כן. ואפשר גם לבוא לסשן אישי בקליניקה אצלי בבית במצפה רמון.</p>
+      </details>
+      <details class="faq-item">
+        <summary data-t="faq3-q">הטיפול כולל מגע?</summary>
+        <p data-t="faq3-a">כן, רק אם זה מתאים, ואני תמיד שואל מראש. בחוויה האישית שלי כמטופל, מגע בסשן נשימה ממש תומך בי. הוא גם נותן ביטחון, וגם מאפשר לשחרר את מה שמבקש להשתחרר.</p>
+      </details>
+      <details class="faq-item">
+        <summary data-t="faq4-q">איזה רגשות עולים במהלך הסדנה? יש מצב שאבכה?</summary>
+        <p data-t="faq4-a">כן לגמרי. בכי הוא הדרך הטבעית של הגוף לפרוק עומס וכאב שהצטברו. ואפשר להרגיש הכל: כעס, כאב או פחד. ואחרי שנותנים לרגשות האלה מקום, מגיעים גם צחוק, הודיה, אהבה ושקט עמוק.</p>
+      </details>
+      <details class="faq-item">
+        <summary data-t="faq5-q">זה לא מפחיד קצת? זה נשמע ממש עוצמתי. אנחנו מודעים במהלך הסדנה למה שקורה לנו?</summary>
+        <p data-t="faq5-a">זה באמת יכול להיות עוצמתי, אבל לגמרי יש מודעות. זה אחד היתרונות הבולטים בנשימה מעגלית: בניגוד לחומרים משני תודעה, כאן יש תמיד שליטה, ואפשר להפסיק מתי שרוצים. אם מרגישים שזה עוצמתי מדי, פשוט חוזרים לנשימה טבעית.<br>הרבה פעמים לקראת הסיום נכנסים לכמה דקות לשינה עמוקה ומתוקה, מה שנקרא שינה ערה. במצב הזה המודעות קצת משתנה, ומבינים את זה לעומק רק בדיעבד. אלה רגעים מתוקים שעושים ממש ריסטארט למערכת.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ==================================================================== -->
 <!-- רצועת וידאו שנייה                                                    -->
 <!-- ==================================================================== -->
 <section class="strip" aria-label="רצועת וידאו, שקיעה מעל המכתש">
@@ -1209,9 +1276,7 @@ footer{border-top:none}
   <div class="wrap">
     <p data-t="book-kicker" class="kicker">בואו נדבר</p>
     <h2 data-t="book-title">לתאם סדנה</h2>
-    <p data-t="book-lead" class="lead" style="margin-top:14px">
-      ממלאים את הפרטים, נפתחת שיחת וואטסאפ עם ההודעה מוכנה, ואור חוזר אליכם.
-    </p>
+    <p data-t="book-lead" class="lead" style="margin-top:14px">ממלאים את הפרטים, נפתחת שיחת וואטסאפ עם ההודעה מוכנה, ואור חוזר אליכם.</p>
 
     <form class="form" id="bookForm" novalidate>
       <div class="field">
@@ -1228,7 +1293,7 @@ footer{border-top:none}
         <label for="fWho">מה מעניין אתכם</label>
         <select id="fWho" name="who">
           <option>סדנה זוגית</option>
-          <option>סדנה קבוצתית, עד 5 משתתפים</option>
+          <option>סדנה קבוצתית, עד 7 משתתפים</option>
           <option>סשן אישי בקליניקה</option>
           <option>עדיין לא בטוח</option>
         </select>
@@ -1265,10 +1330,7 @@ footer{border-top:none}
       <a href="https://www.instagram.com/or.neshima/" target="_blank" rel="noopener">אינסטגרם</a>
     </nav>
 
-    <p data-t="foot-fine" class="foot-fine">
-      מרחב בטוח להיות את מי שאתם.<br>
-      לפגוש ברכות את האנושיות שבנו.
-    </p>
+    <p data-t="foot-fine" class="foot-fine">מרחב בטוח להיות את מי שאתם.<br>לפגוש ברכות את האנושיות שבנו.</p>
   </div>
 </footer>
 
@@ -1550,22 +1612,23 @@ footer{border-top:none}
       var n = lines.length;
       var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       if (n && n !== 4 && !still) {
-        var D = 8 * n, k = function (sec) { return (sec / D * 100).toFixed(2) + "%"; };
+        var P = 5, D = P * n, k = function (sec) { return (sec / D * 100).toFixed(2) + "%"; };
         var css = "@keyframes lineBreathN{0%{opacity:0;filter:blur(8px);transform:translateY(calc(-50% + 14px)) scale(.96)}" +
-          k(3.5) + "{opacity:1;filter:blur(0);transform:translateY(-50%) scale(1)}" +
-          k(5.1) + "{opacity:1;filter:blur(0);transform:translateY(-50%) scale(1.01)}" +
-          k(8) + ",100%{opacity:0;filter:blur(6px);transform:translateY(calc(-50% - 12px)) scale(1.03)}}";
+          k(2.2) + "{opacity:1;filter:blur(0);transform:translateY(-50%) scale(1)}" +
+          k(3.2) + "{opacity:1;filter:blur(0);transform:translateY(-50%) scale(1.01)}" +
+          k(5) + ",100%{opacity:0;filter:blur(6px);transform:translateY(calc(-50% - 12px)) scale(1.03)}}";
         if (n === 1) css = "@keyframes lineBreathN{0%,100%{opacity:.86;filter:blur(0);transform:translateY(-50%) scale(.99)}50%{opacity:1;filter:blur(0);transform:translateY(-50%) scale(1.02)}}";
         var st = document.getElementById("breathN") || document.head.appendChild(document.createElement("style"));
         st.id = "breathN"; st.textContent = css;
         lines.forEach(function (l, j) {
           l.style.animationName = "lineBreathN";
           l.style.animationDuration = (n === 1 ? 8 : D) + "s";
-          l.style.animationDelay = (n === 1 ? 0 : 8 * j) + "s";
+          l.style.animationDelay = (n === 1 ? 0 : P * j) + "s";
         });
       }
     }
 
+    tidyHidden(); /* גם לפני שהגיליון ענה, לפי מה שכבר מוסתר בדף */
     fetch(url, { cache: "no-store" })
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
       .then(function (csv) {
@@ -1582,8 +1645,25 @@ footer{border-top:none}
           });
         }
         tidyHidden();
+        document.documentElement.classList.remove("t-wait");
       })
-      .catch(function () { /* הגיליון לא זמין: נשארים עם הטקסט שבדף */ });
+      .catch(function () { document.documentElement.classList.remove("t-wait"); /* הגיליון לא זמין: נשארים עם הטקסט שבדף */ });
+  })();
+
+  /* "קראו עוד" ב"מהי נשימה מעגלית" (26/11/2026) */
+  (function () {
+    var btn = document.getElementById("whatMoreBtn"), box = document.getElementById("whatMore");
+    if (!btn || !box) return;
+    var label = btn.querySelector("[data-t]");
+    btn.addEventListener("click", function () {
+      var open = box.hidden;
+      box.hidden = !open;
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+      if (label) {
+        if (open) { label.dataset.more = label.textContent; label.textContent = "סגירה"; }
+        else if (label.dataset.more) label.textContent = label.dataset.more;
+      }
+    });
   })();
 </script>
 </body>

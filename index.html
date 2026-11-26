@@ -1532,18 +1532,56 @@ footer{border-top:none}
       });
     }
 
+    /* אחרי מחיקה: כרטיס, שלב או פרט שכל הטקסטים בו נמחקו נעלם כולו,
+       והמשפטים הצפים בפתיחה מתחלקים מחדש בנשימות, בלי "נשימה ריקה". */
+    function tidyHidden() {
+      document.querySelectorAll(".card, .step, .fact, .btn-row").forEach(function (box) {
+        var parts = box.querySelectorAll("[data-t]");
+        if (!parts.length) return;
+        var main = box.querySelectorAll("h3[data-t], p[data-t]:not(.opt-tag), dt[data-t], dd[data-t], a[data-t]");
+        var all = [].every.call(main.length ? main : parts, function (el) { return el.hidden; });
+        if (box.classList.contains("card")) {
+          var h = box.querySelector("h3[data-t]"), t = box.querySelector("p[data-t]:not(.opt-tag)");
+          all = !!(h && h.hidden && (!t || t.hidden));
+        }
+        box.style.display = all ? "none" : "";
+      });
+      var lines = [].filter.call(document.querySelectorAll(".breath-line"), function (l) { return !l.hidden; });
+      var n = lines.length;
+      var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (n && n !== 4 && !still) {
+        var D = 8 * n, k = function (sec) { return (sec / D * 100).toFixed(2) + "%"; };
+        var css = "@keyframes lineBreathN{0%{opacity:0;filter:blur(8px);transform:translateY(calc(-50% + 14px)) scale(.96)}" +
+          k(3.5) + "{opacity:1;filter:blur(0);transform:translateY(-50%) scale(1)}" +
+          k(5.1) + "{opacity:1;filter:blur(0);transform:translateY(-50%) scale(1.01)}" +
+          k(8) + ",100%{opacity:0;filter:blur(6px);transform:translateY(calc(-50% - 12px)) scale(1.03)}}";
+        if (n === 1) css = "@keyframes lineBreathN{0%,100%{opacity:.86;filter:blur(0);transform:translateY(-50%) scale(.99)}50%{opacity:1;filter:blur(0);transform:translateY(-50%) scale(1.02)}}";
+        var st = document.getElementById("breathN") || document.head.appendChild(document.createElement("style"));
+        st.id = "breathN"; st.textContent = css;
+        lines.forEach(function (l, j) {
+          l.style.animationName = "lineBreathN";
+          l.style.animationDuration = (n === 1 ? 8 : D) + "s";
+          l.style.animationDelay = (n === 1 ? 0 : 8 * j) + "s";
+        });
+      }
+    }
+
     fetch(url, { cache: "no-store" })
       .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
       .then(function (csv) {
         var rows = parseCSV(csv);
         for (var i = 1; i < rows.length; i++) {
           var text = (rows[i][0] || "").trim(), key = (rows[i][2] || "").trim();
-          if (!key || !text) continue;
-          if (key === "phone") { setPhone(text); continue; }
+          if (!key) continue;
+          if (key === "phone") { if (text) setPhone(text); continue; }
           document.querySelectorAll('[data-t="' + key + '"]').forEach(function (el) {
+            /* תא ריק = אור מחק את המשפט, ולכן מסתירים אותו באתר (26/11/2026, לבקשתו) */
+            if (!text) { el.hidden = true; el.style.display = "none"; return; }
+            el.hidden = false; el.style.display = "";
             el.innerHTML = toHTML(text);
           });
         }
+        tidyHidden();
       })
       .catch(function () { /* הגיליון לא זמין: נשארים עם הטקסט שבדף */ });
   })();

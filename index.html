@@ -765,6 +765,39 @@ footer{border-top:none}
 }
 .faq-item[open] summary::after{transform:rotate(45deg);background:var(--teal)}
 .faq-item p{padding:0 22px 20px;color:var(--ink-soft);line-height:1.85}
+
+/* ==========================================================================
+   סרטונים ותמונה במסגרת (26/11/2026). ריבקי: "לא רואים בסרטון כלום, תוודא שרואים".
+   הסרטונים אנכיים מהטלפון, ובתור רקע רחב רואים מהם רק פס כהה. עכשיו כל אחד מוצג
+   שלם, במסגרת מעוגלת: בטלפון מתחת לטקסט, במחשב לצידו.
+   ========================================================================== */
+.quote-sec{background:linear-gradient(180deg,#4a3324 0%,#3b2a1f 70%,#3b2a1f 100%)}
+.quote-sec{padding-bottom:150px}
+.quote-sec .wrap{z-index:2}
+.media-frame{
+  margin:0;position:relative;overflow:hidden;background:#3b2a1f;
+  border-radius:38px 28px 42px 30px / 30px 40px 28px 38px;
+  box-shadow:0 30px 60px -34px rgba(40,26,18,.65),0 0 0 6px rgba(255,248,236,.55);
+}
+.media-frame video,.media-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.media-wide{width:100%;max-width:720px;aspect-ratio:800/414;margin:34px auto 0}
+.media-tall{width:min(100%,380px);aspect-ratio:2/3;flex:0 0 auto}
+.feature{
+  position:relative;padding:72px 24px 80px;
+  background:
+    radial-gradient(40% 30% at 85% 20%,rgba(230,195,155,.28),transparent 70%),
+    radial-gradient(36% 28% at 10% 85%,rgba(196,135,122,.14),transparent 70%),
+    linear-gradient(180deg,#f4e9d8 0%,#efe2cd 100%);
+}
+.feature-grid{max-width:960px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:30px}
+.feature-text{text-align:center;max-width:440px}
+.feature-line{font-family:var(--serif);font-size:clamp(1.55rem,6vw,2.25rem);line-height:1.45;color:var(--ink)}
+.feature-sub{font-family:var(--hand);font-weight:700;font-size:clamp(2rem,8vw,2.8rem);line-height:1.15;color:var(--teal);margin-top:12px}
+@media (min-width:820px){
+  .feature-grid{flex-direction:row;justify-content:center;gap:64px}
+  .feature.rev .feature-grid{flex-direction:row-reverse}
+  .media-tall{width:360px}
+}
 </style>
 </head>
 <body>
@@ -807,10 +840,6 @@ footer{border-top:none}
 <!-- מהי נשימה מעגלית, במילים של אור                                      -->
 <!-- ==================================================================== -->
 <section class="quote-sec" id="what">
-  <div class="vid-bg" aria-hidden="true">
-    <video data-bg src="assets/vid/sky.mp4" poster="assets/vid/sky.jpg"
-           muted loop playsinline preload="none"></video>
-  </div>
   <div class="wrap">
     <p data-t="what-kicker" class="kicker">מהי נשימה מעגלית</p>
     <blockquote data-t="what-text">נשימה מעגלית היא כלי עדין ועוצמתי להרפיה עמוקה. דרך נשימה רציפה הגוף משחרר מתחים עומסים ורגשות שהצטברו בו, ומאפשר לאנרגיה חדשה לזרום בגוף ובתודעה.</blockquote>
@@ -820,6 +849,11 @@ footer{border-top:none}
       <p data-t="what-more-3">נשימה מעגלית מאפשרת לפגוש מחדש את התחושות והרגשות שלא קיבלו מקום, להסכים להרגיש אותם כאן ועכשיו, ולתת להם לנוע ולהשתחרר. מתוך השחרור הזה עולה קלילות ושמחה טבעית – לא משהו חדש שצריך להשיג, אלא משהו שכבר קיים בנו ומחכה שיתנו לו מקום.</p>
     </div>
     <button type="button" class="more-btn" id="whatMoreBtn" aria-controls="whatMore" aria-expanded="false"><span data-t="what-more-btn">קראו עוד</span></button>
+    <figure class="media-frame media-wide">
+      <video data-bg src="assets/vid/sky.mp4" poster="assets/vid/sky.jpg"
+             muted loop playsinline preload="none"
+             aria-label="רגעים מתוך סדנה: נשימה, מגע ושקיעה במכתש"></video>
+    </figure>
   </div>
 </section>
 
@@ -1149,13 +1183,15 @@ footer{border-top:none}
 <!-- ==================================================================== -->
 <!-- רצועת וידאו                                                          -->
 <!-- ==================================================================== -->
-<section class="strip strip-photo" aria-label="מזרנים פרושים במכתש בשקיעה">
-  <div class="vid-bg" aria-hidden="true">
-    <img src="assets/strip-mattress.jpg" alt="" width="1066" height="1600" loading="lazy">
-  </div>
-  <div class="strip-line">
-    <p data-t="strip-1">לנשום ולשחרר את מה שמעכב חיים</p>
-    <p data-t="strip-1b" class="strip-sub">עומק החיים כעומק הנשימה</p>
+<section class="feature" aria-label="מזרנים פרושים במכתש בשקיעה">
+  <div class="feature-grid">
+    <figure class="media-frame media-tall">
+      <img src="assets/strip-mattress.jpg" alt="מזרנים, כריות ותה פרושים על מחצלת במכתש רמון, בשקיעה" width="1066" height="1600" loading="lazy">
+    </figure>
+    <div class="feature-text">
+    <p data-t="strip-1" class="feature-line">לנשום ולשחרר את מה שמעכב חיים</p>
+    <p data-t="strip-1b" class="feature-sub">עומק החיים כעומק הנשימה</p>
+    </div>
   </div>
 </section>
 
@@ -1260,13 +1296,17 @@ footer{border-top:none}
 <!-- ==================================================================== -->
 <!-- רצועת וידאו שנייה                                                    -->
 <!-- ==================================================================== -->
-<section class="strip" aria-label="רצועת וידאו, שקיעה מעל המכתש">
-  <div class="vid-bg" aria-hidden="true">
-    <video data-bg data-wide="assets/vid/hero-wide.mp4" data-wide-poster="assets/vid/hero-wide.jpg"
-           src="assets/vid/hero.mp4" poster="assets/vid/hero.jpg"
-           muted loop playsinline preload="none"></video>
+<section class="feature rev" aria-label="סרטון: סדנה בשקיעה מעל המכתש">
+  <div class="feature-grid">
+    <figure class="media-frame media-tall">
+      <video data-bg src="assets/vid/hero.mp4" poster="assets/vid/hero.jpg"
+             muted loop playsinline preload="none"
+             aria-label="מזרנים פרושים במכתש ואור יושב לידם, השמש שוקעת מאחורי ההרים"></video>
+    </figure>
+    <div class="feature-text">
+    <p data-t="strip-2" class="feature-line">יש באוויר אנרגיה רכה של שחרור. של רפואה.</p>
+    </div>
   </div>
-  <p data-t="strip-2" class="strip-line">יש באוויר אנרגיה רכה של שחרור. של רפואה.</p>
 </section>
 
 <!-- ==================================================================== -->
